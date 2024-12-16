@@ -11,7 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#528D5C",
+        "primary-dark": "#3a6642",
       },
+      fontFamily: {
+        sans: ['var(--font-poppins)'],
+        poetsen: ['var(--font-poetsen-one)']
+      }
     },
   },
   plugins: [],
