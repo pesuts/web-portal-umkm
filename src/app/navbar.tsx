@@ -71,7 +71,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="col-span-3 flex justify-end">
-        <button className="px-4 py-2 bg-primary rounded-md hover:bg-primary-dark">
+        <button className="px-4 py-2 bg-primary rounded-md hover:bg-primary-hover">
           <div className="flex items-center justify-center gap-2">
             <FaUserCircle color="white" size={20} />
             <p className="font-semibold text-white">Admin</p>

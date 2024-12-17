@@ -1,4 +1,5 @@
 import About from "@/components/landing-page/About";
+import Footer from "@/components/landing-page/Footer";
 import Hero from "@/components/landing-page/Hero";
 import Map from "@/components/landing-page/Map";
 import Products from "@/components/landing-page/Products";
@@ -14,6 +15,7 @@ export default function Home() {
       <Products />
       <UMKM />
       <Map />
+      <Footer /> 
     </main>
   );
 }
