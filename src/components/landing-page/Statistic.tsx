@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Statistic = () => {
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 py-10">
       <div className="bg-[url('/images/3d-map.png')] -ms-[25%] bg-contain bg-no-repeat">
         {/* <Image src={"/images/3d-map.png"} alt="UMKM" width={500} height={500} className="bg-fuchsia-300 w-full bg-contain"/> */}
       </div>
