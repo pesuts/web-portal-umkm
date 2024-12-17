@@ -1,10 +1,18 @@
-import ProductCard from "./ProductCard";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import UMKMCard from "./UMKMCard";
 
-const Products = () => {
+const UMKM = () => {
   return (
-    <div className="border-primary border-8 p-20">
+    <div className="p-20">
       <div className="flex mb-8 justify-between">
+        <div className="flex gap-5 justify-center items-center">
+          <button>
+            <BsArrowLeftCircle size={50} className="hover:text-primary" />
+          </button>
+          <button>
+            <BsArrowRightCircle size={50} className="hover:text-primary" />
+          </button>
+        </div>
         <div>
           <h1 className="text-3xl text-primary font-poetsen">
             PRODUK UMKM UNGGULAN
@@ -14,22 +22,14 @@ const Products = () => {
             kreativitas tinggi oleh pengusaha lokal.
           </p>
         </div>
-        <div className="flex gap-5 justify-center items-center">
-          <button>
-            <BsArrowLeftCircle size={50} className="hover:text-primary" />
-          </button>
-          <button>
-            <BsArrowRightCircle size={50} className="hover:text-primary" />
-          </button>
-        </div>
       </div>
       <div className="grid grid-cols-3 gap-8">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <UMKMCard />
+        <UMKMCard />
+        <UMKMCard />
       </div>
     </div>
   );
 };
 
-export default Products;
+export default UMKM;

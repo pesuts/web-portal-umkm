@@ -17,7 +17,8 @@ const ProductCard = () => {
             width={500}
             height={500}
             alt="Golak"
-            className="rounded-lg"
+            className="rounded-lg h-60"
+            style={{objectFit: "contain"}}
           />
           <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
         </div>
