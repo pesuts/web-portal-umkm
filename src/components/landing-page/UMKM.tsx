@@ -13,7 +13,7 @@ const UMKM = () => {
             <BsArrowRightCircle size={50} className="hover:text-primary" />
           </button>
         </div>
-        <div>
+        <div className="text-right">
           <h1 className="text-3xl text-primary font-poetsen">
             PRODUK UMKM UNGGULAN
           </h1>

@@ -9,26 +9,26 @@ import { FaUserCircle } from "react-icons/fa";
 const links = [
   {
     name: "Beranda",
-    link: "/",
+    link: "",
   },
   {
     name: "UMKM",
-    link: "/umkm",
+    link: "umkm",
   },
   {
     name: "Produk",
-    link: "/products",
+    link: "products",
   },
   {
     name: "Peta",
-    link: "/map",
+    link: "map",
   },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname().split("/")[1];
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div className="bg-slate-100 w-full grid grid-cols-12 items-center px-16 py-4">
@@ -54,7 +54,7 @@ export default function Navbar() {
           {links.map((link, i) => (
             <li className="group transition duration-300 overflow-hidden" key={i}>
               <Link
-                href={"#"}
+                href={"/" + link.link}
                 className={`hover:text-primary hover:font-bold overflow-hidden px-1 ${
                   link.link === pathname ? "font-bold text-primary" : ""
                 }`}

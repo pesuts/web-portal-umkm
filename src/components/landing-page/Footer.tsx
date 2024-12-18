@@ -66,11 +66,13 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="bg-primary text-center">
-        <p className="py-3">
+      <div className="bg-primary text-center grid grid-cols-2 py-3 gap-1">
+        <div className="justify-self-end">
           <span className="font-bold">&copy; 2025 Desa Tanjungrejo</span>
+        </div>
+        <div className="justify-self-start">
           <span> | By : KKN 82 UPN Veteran Yogyakarta</span>
-        </p>
+        </div>
       </div>
     </div>
   );

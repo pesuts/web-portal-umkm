@@ -1,8 +1,8 @@
-const Nigma = () => { 
+const Map = () => { 
   return (
     <div>
     <p>Hello gaes</p>
   </div>);
 }
 
-export default Nigma;
+export default Map;
