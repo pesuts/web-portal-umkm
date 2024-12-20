@@ -10,7 +10,7 @@ const ProductCard = () => {
         <MdLocationPin className="text-primary-2" />
         <p className="text-primary-2">Gebyog</p>
       </div>
-      <div className="relative overflow-hidden bg-no-repeat">
+      <div className="px-4 relative overflow-hidden bg-no-repeat">
         <Image
           src={"/images/golak.png"}
           width={500}
@@ -21,8 +21,8 @@ const ProductCard = () => {
         />
         <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
       </div>
-      <div className="my-4">
-        <hr className="bg-slate-300 h-px border-0" />
+      <hr className="bg-slate-300 h-px border-0 mt-4" />
+      <div className="px-4 mb-4">
         <div className="py-2">
           <h3 className="text-xl font-bold">Golak</h3>
           <p className="text-slate-700 py-2">
@@ -33,7 +33,7 @@ const ProductCard = () => {
         </div>
         <hr className="bg-slate-300 h-px border-0" />
       </div>
-      <div className="flex items-center justify-between">
+      <div className="px-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <BsFillDashCircleFill />
           <p>

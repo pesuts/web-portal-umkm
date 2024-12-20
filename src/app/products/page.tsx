@@ -51,7 +51,7 @@ const ProductPage = () => {
               Produk
             </Link>
           </div>
-          <button className="flex border-2 border-primary ps-5 pe-2 py-2 rounded-md justify-between gap-8 items-center text-primary">
+          <button className="flex border-2 border-primary ps-5 pe-2 py-2 rounded-md justify-between gap-8 items-center text-primary hover:border-primary-hover">
             <p>Pilih Desa</p>
             <div className="hover:text-primary-hover">
               <FaXmark />

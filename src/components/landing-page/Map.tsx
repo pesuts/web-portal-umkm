@@ -1,4 +1,5 @@
-import Image from "next/image";
+// import Image from "next/image";
+import GoogleMapComponent from "../GoogleMapComponent";
 
 const Map = () => {
   return (
@@ -8,16 +9,8 @@ const Map = () => {
         <h1 className="font-poetsen text-3xl text-primary">SEBARAN LOKASI UMKM</h1>
         <p className="text-slate-500 my-2">Temukan produk unik dari UMKM yang anda inginkan</p>
       </div>
-      <div className="h-full bg-fuchsia-300 box-border">
-        <Image
-          src={"/images/google-map.jpg"}
-          width={500}
-          height={500}
-          alt="Google Map"
-          // className="h-[84.5%] w-full"
-          className="h-[87%] w-full"
-          style={{ objectFit: "cover" }}
-        />
+      <div className="h-[87%] bg-fuchsia-300 box-border">
+        <GoogleMapComponent disabled={true} />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const UMKMCard = () => {
         <MdLocationPin className="text-primary-2" />
         <p className="text-primary-2">Gebyog</p>
       </div>
-      <div className="relative">
+      <div className="px-4 relative">
         <Image
           src={"/images/placeholder-card.jpg"}
           width={500}
@@ -21,8 +21,8 @@ const UMKMCard = () => {
         />
         <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
       </div>
-      <div className="my-4">
-        <hr className="bg-slate-300 h-px border-0" />
+      <hr className="bg-slate-300 h-px border-0 mt-4" />
+      <div className="px-4 mb-2">
         <div className="py-2">
           <h3 className="text-xl font-bold">Pabrik Tahu</h3>
           <div className="flex gap-3 my-2">
@@ -40,7 +40,8 @@ const UMKMCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-end">
+      <hr className="bg-slate-300 h-px border-0 mb-4" />
+      <div className="px-4 flex items-center justify-end">
         <Link
           href={"/umkm/123"}
           className="py-2 px-3 bg-primary-2 text-white text-md rounded-md hover:bg-primary"
