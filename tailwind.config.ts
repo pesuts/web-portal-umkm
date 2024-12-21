@@ -15,6 +15,7 @@ export default {
         "primary-2": "#63AB45",
         "primary-hover": "#3a6642",
         "primary-dark": "#204927",
+        "primary-bg": "#DDE5DE",
       },
       fontFamily: {
         sans: ["var(--font-poppins)"],

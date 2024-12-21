@@ -7,13 +7,13 @@ const UMKM = () => {
       <div className="flex mb-8 justify-between">
         <div className="flex gap-5 justify-center items-center">
           <button>
-            <BsArrowLeftCircle size={50} className="hover:text-primary" />
+            <BsArrowLeftCircle size={50} className="text-primary hover:text-primary-hover" />
           </button>
           <button>
-            <BsArrowRightCircle size={50} className="hover:text-primary" />
+            <BsArrowRightCircle size={50} className="text-primary hover:text-primary-hover" />
           </button>
         </div>
-        <div>
+        <div className="text-right">
           <h1 className="text-3xl text-primary font-poetsen">
             PRODUK UMKM UNGGULAN
           </h1>
