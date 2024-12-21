@@ -1,22 +1,18 @@
 "use client";
 
-// const MotionDiv = dynamic(() => import("@/components/cube"), { ssr: false });
-// import MotionDiv from "@/components/cube";
 import Hero from "@/components/landing-page/Hero";
 import About from "@/components/landing-page/About";
 import Map from "@/components/landing-page/Map";
 import Products from "@/components/landing-page/Products";
 import Statistic from "@/components/landing-page/Statistic";
 import UMKM from "@/components/landing-page/UMKM";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+
 const MotionDiv = dynamic(() => import("@/components/MotionDiv"), {
   ssr: false,
 });
 
 export default function Home() {
-  console.log({ motion });
-  console.log("suki");
   return (
     <main>
       <MotionDiv

@@ -1,6 +1,7 @@
 import { InfoWindow } from "@react-google-maps/api";
 import type { MarkerData } from "@/types/Map";
 import Image from "next/image";
+import Link from "next/link";
 
 const InfoMap = ({
   selectedMarker,
@@ -18,7 +19,8 @@ const InfoMap = ({
       <div className="p-4 outline-2 mb-10">
         <div className="flex">
           <Image
-            src={selectedMarker.image}
+            src={"/images/placeholder-card.jpg"}
+            // src={selectedMarker.image}
             alt={selectedMarker.title}
             className="rounded-md mb-2"
             width={300}
@@ -32,9 +34,11 @@ const InfoMap = ({
               <p className="text-gray-600 text-sm">
                 {selectedMarker.description}
               </p>
-              <button className="mt-2 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
+              <Link
+                href={`/umkm/${selectedMarker.id}`}
+                className="block text-center mt-2 px-4 py-3 text-white bg-primary rounded hover:bg-primary-hover">
                 Lihat Selengkapnya
-              </button>
+              </Link>
             </div>
           </div>
         </div>

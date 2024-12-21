@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BsFillDashCircleFill } from "react-icons/bs";
+import { BiSolidUserCircle } from "react-icons/bi";
 import { MdLocationPin } from "react-icons/md";
 
 const ProductCard = () => {
@@ -34,10 +34,10 @@ const ProductCard = () => {
         <hr className="bg-slate-300 h-px border-0" />
       </div>
       <div className="px-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <BsFillDashCircleFill />
+        <div className="flex items-center gap-2">
+          <BiSolidUserCircle className="text-primary" size={25} />
           <p>
-            Oleh <Link href={"#"}>Sulastri</Link>
+            Oleh <Link href={"#"} className="font-semibold text-primary">Sulastri</Link>
           </p>
         </div>
         <Link

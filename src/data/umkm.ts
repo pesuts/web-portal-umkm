@@ -1,0 +1,78 @@
+import { MarkerData } from "@/types/Map";
+
+const umkm: MarkerData[] = [
+  {
+    id: "123",
+    lng: 109.66671999892986,
+    lat: -7.723059999318707,
+    title: "Location 1",
+    description: "Description for Location 1",
+    image: "https://example.com/image1.png",
+    dusun: "Ketileng",
+  },
+  {
+    id: "124",
+    lng: 109.67177000068602,
+    lat: -7.735830000053681,
+    title: "Location 2",
+    description: "Description for Location 2",
+    image: "https://example.com/image2.png",
+    dusun: "Ganggeng",
+  },
+  {
+    id: "125",
+    lng: 109.67528000067256,
+    lat: -7.734900000333937,
+    title: "Location 3",
+    description: "Description for Location 3",
+    image: "https://example.com/image3.png",
+    dusun: "Gebyog",
+  },
+  {
+    id: "126",
+    lng: 109.67541999993409,
+    lat: -7.731869999999674,
+    title: "Location 4",
+    description: "Description for Location 4",
+    image: "https://example.com/image4.png",
+    dusun: "Tinesek",
+  },
+  {
+    id: "127",
+    lng: 109.67251000063709,
+    lat: -7.724219999752393,
+    title: "Location 5",
+    description: "Description for Location 5",
+    image: "https://example.com/image5.png",
+    dusun: "Ketileng",
+  },
+  {
+    id: "128",
+    lng: 109.67541999993409,
+    lat: -7.735830000053681,
+    title: "Location 6",
+    description: "Description for Location 6",
+    image: "https://example.com/image6.png",
+    dusun: "Ganggeng",
+  },
+  {
+    id: "129",
+    lng: 109.66671999892986,
+    lat: -7.735830000053681,
+    title: "Location 7",
+    description: "Description for Location 7",
+    image: "https://example.com/image7.png",
+    dusun: "Gebyog",
+  },
+  {
+    id: "130",
+    lng: 109.67177000068602,
+    lat: -7.724219999752393,
+    title: "Location 8",
+    description: "Description for Location 8",
+    image: "https://example.com/image8.png",
+    dusun: "Tinesek",
+  },
+];
+
+export default umkm;
