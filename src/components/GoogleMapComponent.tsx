@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import {
   GoogleMap,
   Marker,
-  useLoadScript,
+  useJsApiLoader,
   Polygon,
 } from "@react-google-maps/api";
 import kelurahanTanjungrejoPoly from "@/data/kelurahanTanjungrejo";
@@ -78,7 +78,7 @@ const defaultOptions = {
 };
 
 const GoogleMapComponent = ({ disabled }: { disabled: boolean }) => {
-  const { isLoaded } = useLoadScript({
+  const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API || "",
   });
 
