@@ -1,3 +1,4 @@
+import { product } from "@/data/product";
 import ProductCard from "./ProductCard";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 
@@ -16,17 +17,27 @@ const Products = () => {
         </div>
         <div className="flex gap-5 justify-center items-center">
           <button>
-            <BsArrowLeftCircle size={50} className="text-primary hover:text-primary-hover" />
+            <BsArrowLeftCircle
+              size={50}
+              className="text-primary hover:text-primary-hover"
+            />
           </button>
           <button>
-            <BsArrowRightCircle size={50} className="text-primary hover:text-primary-hover" />
+            <BsArrowRightCircle
+              size={50}
+              className="text-primary hover:text-primary-hover"
+            />
           </button>
         </div>
       </div>
       <div className="grid grid-cols-3 gap-8">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard product={product} />
+        <ProductCard product={product} />
+        <ProductCard product={product} />
+        {/* <ProductCard product={product} />
+        <ProductCard product={product} /> */}
+        {/* <ProductCard />
+        <ProductCard /> */}
       </div>
     </div>
   );

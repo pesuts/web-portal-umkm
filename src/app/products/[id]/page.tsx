@@ -1,17 +1,30 @@
 "use client";
 
+import { productType } from "@/data/product";
+import { getData } from "@/services/products";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 
 const ProductPage = () => {
-  const pathname = usePathname().split("/")[1];
+  const idProduct = usePathname().split("/")[2];
+  const [product, setProduct] = useState<productType>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  console.log(pathname);
+  useEffect(() => {
+    // setIsLoading(true);
+    const fetchData = async () => {
+      const data = await getData(`/api/products?id=${idProduct}`);
+      setProduct(data.data);
+    };
+    fetchData();
+    setIsLoading(false);
+  }, []);
   return (
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
@@ -24,8 +37,12 @@ const ProductPage = () => {
             Produk
           </Link>
           <IoIosArrowForward />
-          <Link href={"/products/123"} className="font-bold hover:text-primary-hover">
-            Golak
+          <Link
+            href={"/products/123"}
+            className="font-bold hover:text-primary-hover"
+          >
+            {/* Golak */}
+            {product?.name}
           </Link>
         </div>
       </div>
@@ -34,56 +51,68 @@ const ProductPage = () => {
           <div>
             <div className="h-[84%]">
               <Image
-                src={"/images/golak.png"}
+                src={product?.images?.[0] || "/images/placeholder-card.jpg"}
                 width={500}
                 height={500}
-                alt="Golak"
+                alt="Foto Produk"
                 className="rounded-md h-full object-cover"
               />
             </div>
             <div className="grid grid-cols-12 gap-2 mt-4">
               <Image
-                src={"/images/golak.png"}
+                src={product?.images?.[1] || "/images/placeholder-card.jpg"}
+                // src={"/images/golak.png"}
                 width={500}
                 height={500}
-                alt="Golak"
+                alt="Foto Produk"
                 className="col-span-3 rounded-md border-4 border-primary hover:border-4"
               />
               <Image
-                src={"/images/golak.png"}
+                src={product?.images?.[2] || "/images/placeholder-card.jpg"}
+                // src={"/images/golak.png"}
                 width={500}
                 height={500}
-                alt="Golak"
+                alt="Foto Produk"
                 className="col-span-3 rounded-md border-primary hover:border-4"
               />
               <Image
-                src={"/images/golak.png"}
+                src={product?.images?.[3] || "/images/placeholder-card.jpg"}
+                // src={"/images/golak.png"}
                 width={500}
                 height={500}
-                alt="Golak"
+                alt="Foto Produk"
                 className="col-span-3 rounded-md border-primary hover:border-4"
               />
               <Image
-                src={"/images/golak.png"}
+                src={product?.images?.[4] || "/images/placeholder-card.jpg"}
+                // src={"/images/golak.png"}
                 width={500}
                 height={500}
-                alt="Golak"
+                alt="Foto Produk"
                 className="col-span-3 rounded-md border-primary hover:border-4"
               />
             </div>
           </div>
           <div className="flex flex-col justify-between">
             <div>
-              <h1 className="text-3xl font-bold">Golak</h1>
+              <h1 className="text-3xl font-bold">{product?.name}</h1>
               <p className="text-slate-500 my-3">
-                Merupakan makanan khas yang telah ada sejak nenek moyang. Namun,
+                {/* Merupakan makanan khas yang telah ada sejak nenek moyang. Namun,
                 seiring waktu, makanan ini semakin sulit ditemui dan banyak yang
-                tidak tahu tentang makanan tradisional tersebut
+                tidak tahu tentang makanan tradisional tersebut */}
+                {product?.description}
               </p>
               <hr />
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary mb-4">Rp 5.000</p>
+              <p className="text-3xl font-bold text-primary mb-4">
+                {product && product.price !== undefined
+                  ? product.price.toLocaleString("ID-id", {
+                      style: "currency",
+                      currency: "IDR",
+                    })
+                  : "???"}
+              </p>
               <Link
                 className="flex justify-center items-center mt-2 px-5 py-2 gap-2 bg-primary border-white border rounded-md mx-auto w-full hover:bg-primary-hover"
                 href={"https://wa.me/6287737982020"}
