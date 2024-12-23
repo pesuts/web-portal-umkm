@@ -20,6 +20,7 @@ export interface MarkerData {
   lng: number;
   title: string;
   description: string;
+  totalProducts?: number;
   image: string;
   dusun: string;
 }

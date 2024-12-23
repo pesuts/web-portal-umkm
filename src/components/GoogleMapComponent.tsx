@@ -12,6 +12,7 @@ import kelurahanTanjungrejoPoly from "@/data/kelurahanTanjungrejo";
 import type { MarkerData } from "@/types/Map";
 import InfoMap from "./map/InfoMap";
 import { createCustomIcon, urlToBase64 } from "@/utils/imageUtils";
+import { UMKMType } from "@/data/umkm";
 
 const mapContainerStyle = { width: "100%", height: "100%" };
 const center = { lng: 109.671, lat: -7.7305 };
@@ -44,7 +45,7 @@ const GoogleMapComponent = ({
   data,
 }: {
   disabled: boolean;
-  data: MarkerData[];
+  data: UMKMType[];
 }) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API || "",
@@ -96,11 +97,12 @@ const GoogleMapComponent = ({
             }}
             onClick={() => {
               setSelectedMarker({
-                id: "123",
+                id: location.id,
                 lat: location.lat,
                 lng: location.lng,
-                title: location.title,
-                description: location.description,
+                title: location.name,
+                description: location.address,
+                totalProducts: location.totalProducts,
                 image: location.image,
                 dusun: location.dusun
               });

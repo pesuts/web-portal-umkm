@@ -1,11 +1,14 @@
+import { UMKMType } from "./umkm";
+
 export interface productType {
   id: string;
   name: string;
-  price: number;
+  price?: number;
   description: string;
-  images: string[];
+  images?: string[];
   umkmId: string;
   umkmName: string;
+  umkmDetail?: UMKMType;
 }
 
 export const product = {
@@ -19,7 +22,7 @@ export const product = {
   umkmName: "Suryati",
 };
 
-export const products = [
+export const products: productType[] = [
   {
     id: "b1f7c4a3-13f1-4e2d-8ec4-5c5cc7a58f61",
     name: "Golak",
@@ -101,7 +104,7 @@ export const products = [
     description:
       "Kue Sagon khas Kebumen berbahan dasar kelapa parut dan tepung ketan, memiliki rasa manis dan tekstur yang lembut.",
     // images: ["/images/kue_sagon.png"],
-    umkmId: "131",
-    umkmName: "UMKM Mbok Nah",
+    umkmId: "123",
+    umkmName: "Suryati",
   },
 ];

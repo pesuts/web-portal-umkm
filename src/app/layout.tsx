@@ -15,6 +15,7 @@ const poetsenOne = Poetsen_One({
   weight: ['400'],
   variable: '--font-poetsen-one', 
   display: 'swap',
+  adjustFontFallback: false
 });
 
 export default function RootLayout({

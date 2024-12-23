@@ -1,20 +1,20 @@
 "use client";
 
 import GoogleMapComponent from "@/components/GoogleMapComponent";
-import listUmkm from "@/data/umkm";
+import listUmkm, { UMKMType } from "@/data/umkm";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {} from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import type { MarkerData } from "@/types/Map";
+// import type { MarkerData } from "@/types/Map";
 
 const dusun = ["Ketileng", "Ganggeng", "Gebyog", "Tinesek"];
 
 const Map = () => {
   const [checkedDusun, setCheckedDusun] = useState<string[]>(dusun);
-  const [umkm, setUMKM] = useState<MarkerData[]>([])
+  const [umkm, setUMKM] = useState<UMKMType[]>([])
   const [showDusun, setShowDusun] = useState<string[]>(dusun);
   const [isActiveFilter, setIsActiveFilter] = useState<boolean>(true);
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { productType } from "@/data/product";
-import { getData } from "@/services/products";
+import { getData } from "@/services";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,13 +20,22 @@ const ProductPage = () => {
 
   useEffect(() => {
     // setIsLoading(true);
+    console.log("sule2");
     const fetchData = async () => {
-      const data = await getData(`/api/products?id=${idProduct}`);
-      setProduct(data.data);
+      try {
+        console.log(idProduct);
+        const data = await getData(`/api/products?id=${idProduct}`);
+        setProduct(data.data);
+        console.log("sule");
+        console.log(data.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchData();
     setIsLoading(false);
   }, []);
+
   return (
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
@@ -77,9 +86,7 @@ const ProductPage = () => {
                     <button
                       key={num}
                       className={`col-span-3 rounded-md border-primary ${
-                        activePicture === num
-                          ? "border-4"
-                          : "hover:border-4"
+                        activePicture === num ? "border-4" : "hover:border-4"
                       }`}
                       onClick={() => setActivePicture(num)}
                     >
@@ -150,7 +157,9 @@ const ProductPage = () => {
               <hr className="bg-slate-300 h-px border-0 mt-4" />
               <div className="px-10 py-4">
                 <div className="py-2">
-                  <h3 className="text-2xl font-bold">Pabrik Tahu</h3>
+                  <h3 className="text-2xl font-bold">
+                    {product?.umkmDetail?.name}
+                  </h3>
                   <div className="flex flex-col gap-3 mt-3">
                     <div className="flex gap-3">
                       <div className="flex">
@@ -160,23 +169,29 @@ const ProductPage = () => {
                         />
                       </div>
                       <p>
-                        Gebyog, Tanjungrejo, Kec. Buluspesantren, Kabupaten
-                        Kebumen, Jawa Tengah 54391
+                        {product?.umkmDetail?.address}
+                        {/* Gebyog, Tanjungrejo, Kec. Buluspesantren, Kabupaten
+                        Kebumen, Jawa Tengah 54391 */}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
                       <BsBoxSeamFill className="text-primary-2" size={20} />
-                      <p>2 Produk</p>
+                      <p>
+                        <span className="pe-1">
+                          {product?.umkmDetail?.totalProducts}
+                        </span>
+                        Produk
+                      </p>
                     </div>
                     <div className="flex items-center gap-3">
                       <FaPhoneAlt className="text-primary-2" size={20} />
-                      <p>087737982020</p>
+                      <p>{product?.umkmDetail?.phoneNumber}</p>
                     </div>
                   </div>
                 </div>
               </div>
               <Link
-                href={"/umkm/123"}
+                href={`/umkm/${product?.umkmId}`}
                 className="block py-4 px-3 w-full text-center font-bold bg-primary 
               text-white text-md rounded-b-lg hover:bg-primary-hover"
               >

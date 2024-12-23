@@ -2,7 +2,7 @@
 
 import ProductCard from "@/components/landing-page/ProductCard";
 import { productType } from "@/data/product";
-import { getData } from "@/services/products";
+import { getData } from "@/services";
 import Image from "next/image";
 import Link from "next/link";
 // import { usePathname } from "next/navigation";
@@ -84,7 +84,7 @@ const ProductPage = () => {
             ) : (
               products?.map((product) => (
                 <ProductCard
-                  key={product.umkmId + product.umkmName.replace(/ /g, "-")}
+                  key={product.id + product.umkmName.replace(/ /g, "-")}
                   product={product}
                 />
               ))

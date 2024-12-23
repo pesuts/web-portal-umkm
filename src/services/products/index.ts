@@ -1,10 +1,20 @@
-export const getData = async (url: string) => {
-  const response = await fetch(url, {
-    cache: "no-store",
-  });
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+import { products } from "@/data/product";
+import { getUMKMById } from "../umkm";
+
+export const getProductById = (id: string) => {
+  const [product] = products.filter((product) => product.id === id);
+  return product;
+};
+
+export const getProductByIdWithUMKM = (id: string) => {
+  const [product] = products.filter((product) => product.id === id);
+  if (product.umkmId) {
+    const umkmDetail = getUMKMById(product.umkmId);
+    return { ...product, umkmDetail };
   }
-  const data = response.json();
-  return data;
-}
+  return product;
+};
+
+export const getAllProducts = () => {
+  return products;
+};

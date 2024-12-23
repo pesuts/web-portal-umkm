@@ -1,16 +1,29 @@
 "use client";
 
 import UMKMCard from "@/components/landing-page/UMKMCard";
+import { UMKMType } from "@/data/umkm";
+import { getData } from "@/services";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
+import { PiCircleNotchBold } from "react-icons/pi";
 
 const Page = () => {
-  const pathname = usePathname().split("/")[1];
+  const [UMKM, setUMKM] = useState<UMKMType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  console.log(pathname);
+  useEffect(() => {
+    // setIsLoading(true);
+    const fetchData = async () => {
+      const data = await getData("/api/umkm");
+      setUMKM(data.data);
+    };
+    fetchData();
+    setIsLoading(false);
+  }, []);
+
   return (
     <div>
       <div className="bg-[url('/images/umkm-header.png')] text-center py-12">
@@ -40,7 +53,7 @@ const Page = () => {
           GALERI PRODUK UMKM DESA TANJUNGREJO
         </h1> */}
       </div>
-      <div className="px-8 py-5 bg-primary-bg">
+      <div className="px-8 py-5 bg-primary-bg min-h-[300px]">
         <div className="flex justify-between">
           <div className="flex text-primary items-center gap-2">
             <Link href={"/"} className="hover:text-primary-hover">
@@ -60,12 +73,21 @@ const Page = () => {
         </div>
         <div className="py-5 rounded-md">
           <div className="grid grid-cols-3 gap-8">
-            <UMKMCard />
-            <UMKMCard />
-            <UMKMCard />
-            <UMKMCard />
-            <UMKMCard />
-            <UMKMCard />
+            {isLoading ? (
+              <div className="absolute left-0 right-0 h-[30%] screen flex items-center justify-center w-full">
+                <PiCircleNotchBold
+                  size={100}
+                  className="animate-spin text-primary"
+                />
+              </div>
+            ) : (
+              UMKM?.map((umkm) => (
+                <UMKMCard
+                  key={umkm.id}
+                  UMKM={umkm}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
