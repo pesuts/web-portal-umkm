@@ -11,7 +11,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
 
-const ProductView = ({ product, isLoading }: { product: productType, isLoading: boolean }) => {
+const ProductDetailView = ({ product, isLoading }: { product: productType, isLoading: boolean }) => {
   const [activePicture, setActivePicture] = useState<number>(0);
 
   return (
@@ -178,4 +178,4 @@ const ProductView = ({ product, isLoading }: { product: productType, isLoading: 
   );
 };
 
-export default ProductView;
+export default ProductDetailView;

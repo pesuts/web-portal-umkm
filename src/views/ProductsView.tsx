@@ -1,26 +1,26 @@
 "use client";
 
-import UMKMCard from "@/components/landing-page/UMKMCard";
-import { UMKMType } from "@/data/umkm";
+import ProductCard from "@/components/landing-page/ProductCard";
+import { productType } from "@/data/product";
 import Image from "next/image";
 import Link from "next/link";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import { PiCircleNotchBold } from "react-icons/pi";
 
-const UMKMView = ({ 
-    UMKM,
-    isLoading,
-  }: {
-    UMKM: UMKMType[];
-    isLoading: boolean;
+const ProductsView = ({
+  products,
+  isLoading,
+}: {
+  products: productType[];
+  isLoading: boolean;
 }) => {
   return (
     <div>
       <div className="bg-[url('/images/umkm-header.png')] text-center py-12">
         <div className="mx-auto w-[70%]">
           <Image
-            src={"/images/umkm-h1.png"}
+            src={"/images/products-h1.png"}
             width={1000}
             height={1000}
             alt="-"
@@ -52,7 +52,7 @@ const UMKMView = ({
             </Link>
             <IoIosArrowForward />
             <Link href={"/"} className="font-bold hover:text-primary-hover">
-              UMKM
+              Produk
             </Link>
           </div>
           <button className="flex border-2 border-primary ps-5 pe-2 py-2 rounded-md justify-between gap-8 items-center text-primary hover:border-primary-hover">
@@ -72,10 +72,10 @@ const UMKMView = ({
                 />
               </div>
             ) : (
-              UMKM?.map((umkm) => (
-                <UMKMCard
-                  key={umkm.id}
-                  UMKM={umkm}
+              products?.map((product) => (
+                <ProductCard
+                  key={product.id + product.umkmName.replace(/ /g, "-")}
+                  product={product}
                 />
               ))
             )}
@@ -86,4 +86,4 @@ const UMKMView = ({
   );
 };
 
-export default UMKMView;
+export default ProductsView;

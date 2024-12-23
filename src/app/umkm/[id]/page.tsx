@@ -1,13 +1,12 @@
-import UMKMView from "@/views/UMKMView";
+import UMKMView from "@/views/UMKMDetailView";
 import { notFound } from "next/navigation";
 
 let isLoading = true;
 
 async function fetchUMKM(idProduct: string) {
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:3000";
 
   const res = await fetch(`${baseUrl}/api/umkm?id=${idProduct}`);
   if (!res.ok) {
@@ -18,11 +17,7 @@ async function fetchUMKM(idProduct: string) {
   return data.data;
 }
 
-export default async function UMKMPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function UMKMPage({ params }: { params: { id: string } }) {
   const UMKM = await fetchUMKM(params.id);
 
   return (

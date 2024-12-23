@@ -1,13 +1,12 @@
-import ProductView from "@/views/ProductView";
+import ProductView from "@/views/ProductDetailView";
 import { notFound } from "next/navigation";
 
 let isLoading = true;
 
 async function fetchProduct(idProduct: string) {
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:3000";
 
   const res = await fetch(`${baseUrl}/api/products?id=${idProduct}`);
   if (!res.ok) {
@@ -18,7 +17,7 @@ async function fetchProduct(idProduct: string) {
   return data.data;
 }
 
-export default async function ProductPage({
+export default async function ProductDetailPage({
   params,
 }: {
   params: { id: string };
