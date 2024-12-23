@@ -6,7 +6,7 @@ import { MdLocationPin } from "react-icons/md";
 
 const ProductCard = ({ product }: { product: productType }) => {
   return (
-    <div className="border shadow-md border-slate-300 rounded-md p-5 relative bg-white">
+    <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
         <MdLocationPin className="text-primary-2" />
         <p className="text-primary-2">Gebyog</p>
@@ -24,7 +24,7 @@ const ProductCard = ({ product }: { product: productType }) => {
         <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
       </div>
       <hr className="bg-slate-300 h-px border-0 mt-4" />
-      <div className="flex flex-col min-h-[50%] justify-between">
+      <div className="flex flex-col min-h-[48%] justify-between">
         <div className="px-4 mb-4">
           <div className="py-2">
             <Link href={`/products/${product.id}`}>
@@ -39,17 +39,19 @@ const ProductCard = ({ product }: { product: productType }) => {
           <hr className="bg-slate-300 h-px border-0" />
         </div>
         <div className="px-4 flex items-center justify-between">
-          <div className="flex items-start gap-2">
-            <BiSolidUserCircle className="text-primary" size={25} />
-            <p>
-              Oleh{" "}
-              <Link
-                href={`/umkm/${product?.umkmId}`}
-                className="font-semibold text-primary hover:text-primary-hover"
-              >
-                {product?.umkmName}
-              </Link>
-            </p>
+          <div className="flex items-start gap-3">
+            <div className="flex items-start gap-2">
+              <BiSolidUserCircle className="text-primary" size={30} />
+              <p className="my-0.5">
+                Oleh{" "}
+                <Link
+                  href={`/umkm/${product?.umkmId}`}
+                  className="font-semibold text-primary hover:text-primary-hover"
+                >
+                  {product?.umkmName}
+                </Link>
+              </p>
+            </div>
           </div>
           <Link
             href={`/products/${product.id}`}

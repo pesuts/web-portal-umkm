@@ -6,6 +6,15 @@ export async function GET(request: NextRequest) {
   const id = searchParams.get("id");
   if (id) {
     const product = getProductByIdWithUMKM(id);
+    if (!product) {
+      return NextResponse.json(
+        {
+          status: "error",
+          data: product,
+        },
+        { status: 404 }
+      );
+    }
     return NextResponse.json(
       {
         status: "success",

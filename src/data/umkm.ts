@@ -21,7 +21,7 @@ const umkm: UMKMType[] = [
     address:
       "Ketileng, Tanjungrejo, Jl. Raya Timur No. 15, Kebumen, Jawa Tengah",
     phoneNumber: "+62 812 3456 7890",
-    totalProducts: 1,
+    totalProducts: 2,
     dusun: "Ketileng",
     lng: 109.66671999892986,
     lat: -7.723059999318707,

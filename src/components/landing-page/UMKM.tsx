@@ -3,6 +3,7 @@ import UMKMCard from "./UMKMCard";
 import { useEffect, useState } from "react";
 import { UMKMType } from "@/data/umkm";
 import { getData } from "@/services";
+import Link from "next/link";
 
 const UMKM = () => {
   const [UMKM, setUMKM] = useState<UMKMType>();
@@ -16,7 +17,7 @@ const UMKM = () => {
     fetchData();
   }, []);
 
-  console.log(UMKM)
+  console.log(UMKM);
 
   return (
     <div className="p-20">
@@ -36,9 +37,11 @@ const UMKM = () => {
           </button>
         </div>
         <div className="text-right">
-          <h1 className="text-3xl text-primary font-poetsen">
-            PRODUK UMKM UNGGULAN
-          </h1>
+          <Link href={"/umkm"}>
+            <h1 className="text-3xl text-primary font-poetsen hover:text-primary-hover">
+              PELAKU UMKM
+            </h1>
+          </Link>
           <p className="text-slate-500 my-2">
             Temukan produk unik dan berkualitas tinggi dengan dedikasi dan
             kreativitas tinggi oleh pengusaha lokal.

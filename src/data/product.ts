@@ -6,6 +6,7 @@ export interface productType {
   price?: number;
   description: string;
   images?: string[];
+  featured?: boolean; 
   umkmId: string;
   umkmName: string;
   umkmDetail?: UMKMType;
