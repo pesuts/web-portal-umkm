@@ -11,8 +11,6 @@ import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
 
 const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolean }) => {
-  console.log("asda")
-  console.log(UMKM)
   return (
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
