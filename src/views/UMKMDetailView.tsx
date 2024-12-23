@@ -14,7 +14,6 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
   console.log("asda")
   console.log(UMKM)
   return (
-    // <div className="px-8 py-5 bg-primary-bg">
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
         <div className="flex text-primary items-center gap-2">

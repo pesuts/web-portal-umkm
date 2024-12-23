@@ -53,7 +53,6 @@ const ProductCard = ({
                   href={`/umkm/${product?.umkmId}`}
                   className="font-semibold text-primary hover:text-primary-hover"
                 >
-                  {/* {product?.umkmName} */}
                   {product?.umkmName}
                 </Link>
               </p>

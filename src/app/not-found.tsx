@@ -15,7 +15,6 @@ export default function NotFound() {
           <p className="text-primary font-bold text-2xl">Halaman Tidak Ditemukan</p>
           <Link
             href={"/"}
-            // onClick={() => router.back()}
             className="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-md mt-4 mb-2 block"
           >
             Kembali ke Beranda

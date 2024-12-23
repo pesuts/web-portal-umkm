@@ -28,8 +28,6 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname().split("/")[1];
 
-  // console.log(pathname);
-
   return (
     <div className="bg-slate-100 w-full grid grid-cols-12 items-center px-16 py-4">
       <div className="col-span-3">

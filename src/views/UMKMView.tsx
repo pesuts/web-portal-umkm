@@ -46,17 +46,6 @@ const UMKMView = ({
             kreativitas tinggi oleh pengusaha lokal.
           </p>
         </div>
-        {/* <h1
-          className="text-[2.5rem] font-poetsen text-white"
-          // style={{
-          //   textShadow: "1px 1px 2px #528D5C",
-          // }}
-          // style={{
-          //   WebkitTextStroke: "5px #528D5C",
-          // }}
-        >
-          GALERI PRODUK UMKM DESA TANJUNGREJO
-        </h1> */}
       </div>
       <div className="px-8 py-5 bg-primary-bg min-h-[300px]">
         <div className="flex justify-between">

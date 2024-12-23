@@ -81,14 +81,12 @@ const GoogleMapComponent = ({
         options={polygonOptions}
       />
       {data.map((location) => {
-        // {locations.map(async (location) => {
         const markerKey = `${location.lat}+${location.lng}`;
         return (
           <Marker
             position={{ lat: location.lat, lng: location.lng }}
             key={markerKey}
             icon={{
-              // url: hoveredMarker === markerKey ? location.image : defaultIcon,
               url: createCustomIcon(base64),
               scaledSize:
                 hoveredMarker === markerKey

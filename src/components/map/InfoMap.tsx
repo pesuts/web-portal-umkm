@@ -14,7 +14,6 @@ const InfoMap = ({
   return (
     <InfoWindow
       position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
-      // onCloseClick={() => setSelectedMarker(null)}
       onCloseClick={() => handleSelectedMarker(null)}
     >
       <div className="p-4 outline-2 mb-10">

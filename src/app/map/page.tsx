@@ -8,7 +8,6 @@ import {} from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import type { MarkerData } from "@/types/Map";
 
 const dusun = ["Ketileng", "Ganggeng", "Gebyog", "Tinesek"];
 
