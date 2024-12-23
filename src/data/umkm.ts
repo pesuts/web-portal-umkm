@@ -9,7 +9,7 @@ export interface UMKMType {
   dusun: string;
   lng: number;
   lat: number;
-  image: string;
+  image?: string;
   productsId: string[];
   products?: productType[];
 }
@@ -25,7 +25,7 @@ const umkm: UMKMType[] = [
     dusun: "Ketileng",
     lng: 109.66671999892986,
     lat: -7.723059999318707,
-    image: "https://example.com/image1.png",
+    image: "/images/logo/logo-1.jpg",
     productsId: [
       "b1f7c4a3-13f1-4e2d-8ec4-5c5cc7a58f61",
       "4f60c033-87a4-4a92-b6ab-06d7f6e428b1",
@@ -40,7 +40,7 @@ const umkm: UMKMType[] = [
     dusun: "Ganggeng",
     lng: 109.67177000068602,
     lat: -7.735830000053681,
-    image: "https://example.com/image2.png",
+    image: "/images/logo/logo-2.jpg",
     productsId: ["b4c35456-507f-47d5-b0a7-fc1c23c7e0bc"],
   },
   {
@@ -53,7 +53,7 @@ const umkm: UMKMType[] = [
     dusun: "Gebyog",
     lng: 109.67528000067256,
     lat: -7.734900000333937,
-    image: "https://example.com/image3.png",
+    // image: "/images/logo/logo-1.jpg",
     productsId: ["8b7d2f9a-97c4-473a-85b6-b559c43f042b"],
   },
   {
@@ -66,7 +66,7 @@ const umkm: UMKMType[] = [
     dusun: "Tinesek",
     lng: 109.67541999993409,
     lat: -7.731869999999674,
-    image: "https://example.com/image4.png",
+    image: "/images/logo/logo-3.jpg",
     productsId: ["e12b4a39-86da-46f2-b0f3-78f7e5b08ea3"],
   },
   {
@@ -79,7 +79,7 @@ const umkm: UMKMType[] = [
     dusun: "Ketileng",
     lng: 109.67251000063709,
     lat: -7.724219999752393,
-    image: "https://example.com/image5.png",
+    image: "/images/logo/logo-4.jpg",
     productsId: ["db582438-9fd7-47a4-b2b9-84513c4825d4"],
   },
   {
@@ -91,7 +91,7 @@ const umkm: UMKMType[] = [
     dusun: "Ganggeng",
     lng: 109.67541999993409,
     lat: -7.735830000053681,
-    image: "https://example.com/image6.png",
+    // image: "/images/logo/logo-1.jpg",
     productsId: ["ce17c0f2-0f9c-4686-8c7e-f6be22c4b105"],
   },
   {
@@ -103,7 +103,7 @@ const umkm: UMKMType[] = [
     dusun: "Gebyog",
     lng: 109.67171999892986,
     lat: -7.728830000053681,
-    image: "https://example.com/image7.png",
+    image: "/images/logo/logo-5.jpg",
     productsId: ["c98a9fa8-b1b9-47ba-b4d7-02ff1842340b"],
   },
   {
@@ -115,7 +115,7 @@ const umkm: UMKMType[] = [
     dusun: "Tinesek",
     lng: 109.67177000068602,
     lat: -7.724219999752393,
-    image: "https://example.com/image8.png",
+    image: "/images/logo/logo-6.jpg",
     productsId: ["1a85b6ae-7c71-4575-8d78-0e1a58b47044"],
   },
 ];

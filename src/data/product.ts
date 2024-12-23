@@ -18,7 +18,7 @@ export const product = {
   price: 5000,
   description:
     "Golak merupakan makanan khas yang telah ada sejak nenek moyang, dengan tekstur yang kenyal, gurih dan bentuknya unik (menyerupai angka 8) sangat enak untuk camilan.",
-  images: ["/images/golak.png"],
+  images: ["/images/golak.jpg"],
   umkmId: "123",
   umkmName: "Suryati",
 };
@@ -30,7 +30,7 @@ export const products: productType[] = [
     price: 5000,
     description:
       "Golak merupakan makanan khas yang telah ada sejak nenek moyang, dengan tekstur yang kenyal, gurih dan bentuknya unik (menyerupai angka 8) sangat enak untuk camilan.",
-    images: ["/images/golak.png"],
+    images: ["/images/golak.jpg"],
     umkmId: "123",
     umkmName: "Suryati",
     featured: true,
@@ -51,6 +51,7 @@ export const products: productType[] = [
     price: 7500,
     description:
       "Sale pisang adalah makanan manis khas Kebumen yang terbuat dari pisang yang dikeringkan dan digoreng, memiliki rasa manis alami dan aroma khas.",
+      images: ["/images/sale-pisang.jpg"],
     umkmId: "125",
     umkmName: "Pisang Sale Mbak Yuni",
     featured: false,
@@ -60,6 +61,7 @@ export const products: productType[] = [
     name: "Jenang Jaket",
     description:
       "Jenang Jaket adalah jenang khas Kebumen yang memiliki tekstur kenyal dan rasa manis yang nikmat, cocok sebagai oleh-oleh.",
+    images: ["/images/jenang-jaket.jpg"],
     umkmId: "126",
     umkmName: "Jenang Jaket Pak Joko",
     featured: true,
@@ -69,7 +71,7 @@ export const products: productType[] = [
     name: "Nopia",
     description:
       "Nopia adalah makanan khas Kebumen berupa kue bertekstur renyah di luar dan berisi gula merah di dalamnya, berbentuk bulat kecil.",
-    images: ["/images/nopia.png"],
+    images: ["/images/nopia.jpg"],
     umkmId: "127",
     umkmName: "Nopia Sari Rasa",
     featured: false,
@@ -79,7 +81,7 @@ export const products: productType[] = [
     name: "Lanting Singkong",
     description:
       "Lanting singkong adalah camilan khas Kebumen dengan rasa gurih yang terbuat dari singkong, berbentuk seperti angka delapan.",
-    images: ["/images/lanting_singkong.png"],
+    images: ["/images/lanting.jpg"],
     umkmId: "128",
     umkmName: "UMKM Bu Tini",
     featured: true,
@@ -89,7 +91,7 @@ export const products: productType[] = [
     name: "Emping Jagung",
     description:
       "Emping Jagung khas Kebumen memiliki rasa gurih dan renyah, cocok untuk camilan saat bersantai.",
-    images: ["/images/emping_jagung.png"],
+    images: ["/images/emping-jagung.jpg"],
     umkmId: "129",
     umkmName: "Emping Jagung Barokah",
     featured: false,
@@ -99,6 +101,7 @@ export const products: productType[] = [
     name: "Sate Ambal",
     description:
       "Sate Ambal adalah sate ayam khas Kebumen yang memiliki bumbu khas berbahan dasar tempe, rasanya unik dan menggugah selera.",
+    images: ["/images/sate-ambal.jpg"],
     umkmId: "130",
     umkmName: "Sate Ambal Pak Raji",
     featured: true,

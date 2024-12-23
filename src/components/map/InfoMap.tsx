@@ -20,8 +20,11 @@ const InfoMap = ({
       <div className="p-4 outline-2 mb-10">
         <div className="flex">
           <Image
-            src={"/images/placeholder-card.jpg"}
-            // src={selectedMarker.image}
+            src={
+              selectedMarker.image
+                ? selectedMarker.image
+                : `/images/placeholder-card.jpg`
+            }
             alt={selectedMarker.title}
             className="rounded-md mb-2"
             width={300}
@@ -39,7 +42,10 @@ const InfoMap = ({
                 <div className="flex items-center gap-3 py-2">
                   <BsBoxSeamFill className="text-primary-2" size={15} />
                   <p className="text-gray-600">
-                    Total Produk :<span className="font-bold text-primary">{selectedMarker?.totalProducts}</span>
+                    Total Produk :
+                    <span className="font-bold text-primary">
+                      {selectedMarker?.totalProducts}
+                    </span>
                   </p>
                 </div>
               )}
