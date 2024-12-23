@@ -1,4 +1,7 @@
-import { getAllProducts, getProductByIdWithUMKM } from "@/services/products";
+import {
+  // getAllProducts,
+  getAllProductsWithUMKM, getProductByIdWithUMKM
+} from "@/services/products";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -26,7 +29,8 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(
     {
       status: "success",
-      data: getAllProducts(),
+      data: getAllProductsWithUMKM(),
+      // data: getAllProducts(),
     },
     { status: 200 }
   );

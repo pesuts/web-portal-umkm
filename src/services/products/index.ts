@@ -18,3 +18,13 @@ export const getProductByIdWithUMKM = (id: string) => {
 export const getAllProducts = () => {
   return products;
 };
+
+export const getAllProductsWithUMKM = () => {
+  // if (product.umkmId) {
+  // }
+  const productsWithUMKM = products.map((product) => { 
+    const umkmDetail = getUMKMById(product.umkmId);
+    return { ...product, umkmDetail };
+  })
+  return productsWithUMKM;
+};

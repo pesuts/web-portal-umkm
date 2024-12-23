@@ -3,7 +3,6 @@
 import { productType } from "@/data/product";
 import Image from "next/image";
 import Link from "next/link";
-// import { notFound, usePathname } from "next/navigation";
 import { useState } from "react";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -30,7 +29,6 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
             href={"/products/123"}
             className="font-bold hover:text-primary-hover"
           >
-            {/* Golak */}
             {product?.name}
           </Link>
         </div>
@@ -73,7 +71,6 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                           product?.images?.[num] ||
                           "/images/placeholder-card.jpg"
                         }
-                        // src={"/images/golak.png"}
                         width={500}
                         height={500}
                         alt="Foto Produk"

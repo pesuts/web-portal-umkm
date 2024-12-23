@@ -9,7 +9,7 @@ const ProductCard = ({ product }: { product: productType }) => {
     <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
         <MdLocationPin className="text-primary-2" />
-        <p className="text-primary-2">Gebyog</p>
+        <p className="text-primary-2">{product?.umkmDetail?.dusun}</p>
       </div>
       <div className="relative overflow-hidden bg-no-repeat">
         <Image
@@ -38,7 +38,7 @@ const ProductCard = ({ product }: { product: productType }) => {
           </div>
           <hr className="bg-slate-300 h-px border-0" />
         </div>
-        <div className="px-4 flex items-center justify-between">
+        <div className="px-4 flex items-center justify-between gap-3">
           <div className="flex items-start gap-3">
             <div className="flex items-start gap-2">
               <BiSolidUserCircle className="text-primary" size={30} />
@@ -48,7 +48,8 @@ const ProductCard = ({ product }: { product: productType }) => {
                   href={`/umkm/${product?.umkmId}`}
                   className="font-semibold text-primary hover:text-primary-hover"
                 >
-                  {product?.umkmName}
+                  {/* {product?.umkmName} */}
+                  {product?.umkmDetail?.name}
                 </Link>
               </p>
             </div>
