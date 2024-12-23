@@ -11,7 +11,10 @@ import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
 
 const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolean }) => {
+  console.log("asda")
+  console.log(UMKM)
   return (
+    // <div className="px-8 py-5 bg-primary-bg">
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
         <div className="flex text-primary items-center gap-2">
@@ -40,7 +43,7 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
             />
           </div>
         ) : (
-          <div className="border-2 shadow-lg bg-white border-slate-300 rounded-2xl p-5 my-6">
+          <div className="border-2 bg-white shadow-lg rounded-2xl p-5 my-6">
             <div className="grid grid-cols-12 gap-10">
               <div className="col-span-4">
                 <div className="relative h-full">
@@ -145,7 +148,7 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
                 </h1>
                 <div className="grid grid-cols-3 gap-8">
                   {UMKM?.products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.id} product={product} dusun={UMKM.dusun} />
                   ))}
                 </div>
               </div>

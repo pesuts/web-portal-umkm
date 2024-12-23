@@ -1,7 +1,7 @@
-import UMKMView from "@/views/UMKMDetailView";
+import UMKMDetailView from "@/views/UMKMDetailView";
 import { notFound } from "next/navigation";
 
-let isLoading = true;
+let isLoading = false;
 
 async function fetchUMKM(idProduct: string) {
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -18,11 +18,12 @@ async function fetchUMKM(idProduct: string) {
 }
 
 export default async function UMKMPage({ params }: { params: { id: string } }) {
-  const UMKM = await fetchUMKM(params.id);
+  const { id } = await params;
+  const UMKM = await fetchUMKM(id);
 
   return (
     <div>
-      <UMKMView UMKM={UMKM} isLoading={isLoading} />
+      <UMKMDetailView UMKM={UMKM} isLoading={isLoading} />
     </div>
   );
 }

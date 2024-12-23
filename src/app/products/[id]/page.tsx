@@ -1,7 +1,7 @@
 import ProductView from "@/views/ProductDetailView";
 import { notFound } from "next/navigation";
 
-let isLoading = true;
+let isLoading = false;
 
 async function fetchProduct(idProduct: string) {
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL

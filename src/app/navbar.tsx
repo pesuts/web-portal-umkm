@@ -55,8 +55,8 @@ export default function Navbar() {
             <li className="group transition duration-300 overflow-hidden" key={i}>
               <Link
                 href={"/" + link.link}
-                className={`hover:text-primary hover:font-bold overflow-hidden px-1 ${
-                  link.link === pathname ? "font-bold text-primary" : ""
+                className={`hover:text-primary-2 hover:font-bold overflow-hidden px-1 ${
+                  link.link === pathname ? "font-bold text-primary-2" : ""
                 }`}
               >
                 {link.name}

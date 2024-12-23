@@ -1,35 +1,53 @@
+"use client";
+
+import Slider, { Settings } from "react-slick";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import UMKMCard from "./UMKMCard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UMKMType } from "@/data/umkm";
 import { getData } from "@/services";
 import Link from "next/link";
 
+const settings: Settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  dots: false,
+  arrows: false,
+};
+
 const UMKM = () => {
-  const [UMKM, setUMKM] = useState<UMKMType>();
+  const [UMKM, setUMKM] = useState<UMKMType[]>([]);
+  const sliderRef = useRef<Slider>(null);
 
   useEffect(() => {
-    // setIsLoading(true);
     const fetchData = async () => {
       const data = await getData("/api/umkm");
-      setUMKM(data.data[0]);
+      setUMKM(data.data);
     };
     fetchData();
   }, []);
 
-  console.log(UMKM);
+  const handlePrev = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const handleNext = () => {
+    sliderRef.current?.slickNext();
+  };
 
   return (
     <div className="p-20">
       <div className="flex mb-8 justify-between">
         <div className="flex gap-5 justify-center items-center">
-          <button>
+          <button onClick={handlePrev}>
             <BsArrowLeftCircle
               size={50}
               className="text-primary hover:text-primary-hover"
             />
           </button>
-          <button>
+          <button onClick={handleNext}>
             <BsArrowRightCircle
               size={50}
               className="text-primary hover:text-primary-hover"
@@ -48,14 +66,15 @@ const UMKM = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-8">
-        {UMKM && (
-          <>
-            <UMKMCard UMKM={UMKM} />
-            <UMKMCard UMKM={UMKM} />
-            <UMKMCard UMKM={UMKM} />
-          </>
-        )}
+      <div className="slider-container">
+        <Slider ref={sliderRef} {...settings}>
+          {UMKM &&
+            UMKM.map((umkm) => (
+              <div key={umkm.id} className="px-3 min-h-72">
+                <UMKMCard UMKM={umkm} />
+              </div>
+            ))}
+        </Slider>
       </div>
     </div>
   );

@@ -1,14 +1,13 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
-import { FaXmark } from "react-icons/fa6";
-import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
+import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { PiCircleNotchBold } from "react-icons/pi";
 import ProductCard from "@/components/landing-page/ProductCard";
 import { productType } from "@/data/product";
 import Image from "next/image";
 import Link from "next/link";
+import DusunFilter from "@/components/DusunFilter";
 
 const dusun = ["Ketileng", "Ganggeng", "Gebyog", "Tinesek"];
 
@@ -19,34 +18,14 @@ const ProductsView = ({
   products: productType[];
   isLoading: boolean;
 }) => {
-  const [activeProducts, setActiveProducts] = useState<productType[]>(products);
-  const [pilihDusun, setPilihDusun] = useState<boolean>(false);
+  const [activeData, setActiveData] = useState<productType[]>(products);
   const [checkedDusun, setCheckedDusun] = useState<string[]>(dusun);
-  const dropdownRef = useRef<HTMLUListElement | null>(null); 
-  const buttonRef = useRef<HTMLButtonElement | null>(null); 
 
   useEffect(() => {
     const filterProducts = products.filter((product) => {
       return product.umkmDetail && checkedDusun.includes(product?.umkmDetail?.dusun);
     });
-    setActiveProducts(filterProducts);
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current && 
-        !dropdownRef.current.contains(event.target as Node) &&
-        buttonRef.current && 
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setPilihDusun(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    setActiveData(filterProducts);
   }, [checkedDusun, products]);
 
   return (
@@ -78,56 +57,7 @@ const ProductsView = ({
               Produk
             </Link>
           </div>
-          <div className="relative">
-            <button
-              ref={buttonRef}
-              onClick={() => setPilihDusun(!pilihDusun)}
-              className={`flex border-2 border-primary ps-5 pe-2 py-2 rounded-md justify-between gap-8 items-center text-primary hover:border-primary-hover ${pilihDusun ? "bg-primary text-white border-primary-dark border-2" : "bg-primary-bg"}`}
-            >
-              <p>Pilih Dusun</p>
-              <div onClick={(e) => { 
-                e.stopPropagation();
-                setCheckedDusun([]);
-                setPilihDusun(true);
-              }} className="hover:text-primary-hover">
-                <FaXmark />
-              </div>
-            </button>
-            {pilihDusun && (
-              <ul
-                ref={dropdownRef}
-                style={{ zIndex: 100 }}
-                className={`absolute block left-0 right-0 border border-primary p-3 rounded-md bg-primary-bg transition-all duration-500`}
-              >
-                {dusun.map((e) => (
-                  <li key={e} className="hover:text-primary-hover py-2">
-                    <button
-                      onClick={() => {
-                        if (checkedDusun.includes(e)) {
-                          setCheckedDusun(
-                            checkedDusun.filter((curr) => curr !== e)
-                          );
-                        } else {
-                          setCheckedDusun([...checkedDusun, e]);
-                        }
-                      }}
-                      className="flex items-center w-full gap-2 px-3"
-                    >
-                      {checkedDusun.includes(e) ? (
-                        <ImCheckboxChecked className="text-primary" size={20} />
-                      ) : (
-                        <ImCheckboxUnchecked
-                          className="text-primary"
-                          size={20}
-                        />
-                      )}
-                      <p className="hover:text-primary-hover">{e}</p>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <DusunFilter checkedDusun={checkedDusun} setCheckedDusun={setCheckedDusun}/>
         </div>
         <div className="py-5 rounded-md">
           <div className="grid grid-cols-3 gap-8">
@@ -139,7 +69,7 @@ const ProductsView = ({
                 />
               </div>
             ) : (
-              activeProducts?.map((product) => (
+              activeData?.map((product) => (
                 <ProductCard
                   key={product?.id + product?.umkmDetail?.name.replace(/ /g, "-")}
                   product={product}

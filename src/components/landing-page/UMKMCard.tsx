@@ -30,20 +30,19 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
               {UMKM.name}
             </h3>
           </Link>
-          <div className="flex gap-3 my-2">
-            <div className="flex">
-              <MdLocationPin className="text-primary-2 mt-0.5" size={20} />
+          <div className="min-h-28 flex flex-col justify-between">
+            <div className="flex gap-3 my-2">
+              <div className="flex">
+                <MdLocationPin className="text-primary-2 mt-0.5" size={20} />
+              </div>
+              <p className="max-h-18 overflow-hidden">
+                {UMKM.address}
+              </p>
             </div>
-            <p>
-              {/* Gebyog, Tanjungrejo, Kec. Buluspesantren, Kabupaten Kebumen, Jawa
-              Tengah 54391 */}
-              {UMKM.address}
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <BsBoxSeamFill className="text-primary-2" size={20} />
-            {/* <p>2 Produk</p> */}
-            <p>{UMKM.totalProducts} Produk</p>
+            <div className="flex items-center gap-3">
+              <BsBoxSeamFill className="text-primary-2" size={20} />
+              <p>{UMKM.totalProducts} Produk</p>
+            </div>
           </div>
         </div>
       </div>

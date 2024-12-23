@@ -1,6 +1,10 @@
 import umkm from "@/data/umkm";
 import { getProductById } from "../products";
 
+export const getTotalUMKM = () => {
+  return umkm.length;
+};
+
 export const getAllUMKM = () => {
   return umkm;
 };

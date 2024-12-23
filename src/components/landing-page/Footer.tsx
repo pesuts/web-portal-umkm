@@ -4,13 +4,20 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 
+const information = {
+  address:
+    "Tanjungrejo, Kec. Buluspesantren, Kabupaten Kebumen, Jawa Tengah 54391",
+  phone: "087737982020",
+  email: "desatanjungrejo20@gmail.com",
+};
+
 const Footer = () => {
   return (
     <div className="text-white">
       <div className="p-12 grid grid-cols-3 bg-primary-dark">
         <div>
           <div className="w-[50%] mx-auto">
-            <h3 className="font-bold mb-3 text-primary text-xl">PORTAL UMKM</h3>
+            <h3 className="font-bold mb-3 text-primary-2 text-xl">PORTAL UMKM</h3>
             <div className="flex items-center">
               <Link
                 href={"/"}
@@ -34,23 +41,36 @@ const Footer = () => {
         <div>
           <div className="w-[70%] mx-auto">
             <h3 className="font-bold mb-3">Hubungi Kami</h3>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 text-white">
               <div className="flex items-center gap-3">
                 <FaPhoneAlt className="text-primary" size={20} />
-                <p>087737982020</p>
+                <a
+                  href={`tel:${information.phone}`}
+                  className="hover:text-primary-bg"
+                >
+                  {information.phone}
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <IoIosMail className="text-primary" size={20} />
-                <p>desatanjungrejo20@gmail.com</p>
+                <a
+                  href={`mailto:${information.email}`}
+                  className="hover:text-primary-bg"
+                >
+                  {information.email}
+                </a>
               </div>
               <div className="flex gap-3 w-[80%]">
                 <div className="flex">
                   <MdLocationPin className="text-primary mt-0.5" size={20} />
                 </div>
-                <p>
-                  Gebyog, Tanjungrejo, Kec. Buluspesantren, Kabupaten Kebumen,
-                  Jawa Tengah 54391
-                </p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${information.address}`}
+                  target="_blank"
+                  className="hover:text-primary-bg"
+                >
+                  {information.address}
+                </a>
               </div>
             </div>
           </div>

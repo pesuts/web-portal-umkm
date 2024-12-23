@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "./navbar";
 import Footer from "@/components/landing-page/Footer";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const poppins = Poppins({
   subsets: ['latin'], 
   weight: ['400', '600', '700'], 

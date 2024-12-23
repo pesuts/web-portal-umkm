@@ -1,6 +1,6 @@
 import UMKMView from "@/views/UMKMView";
 
-let isLoading = true;
+let isLoading = false;
 
 async function fetchUMKM() {
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
