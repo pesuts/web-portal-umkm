@@ -1,11 +1,27 @@
+"use client";
+
+import { getData } from "@/services";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+interface statistic { 
+  totalProducts: number;
+  totalUMKM: number;
+}
 
 const Statistic = () => {
+  const [statistic, setStatistic] = useState<statistic>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData("/api/statistic");
+      setStatistic(data.data);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="grid grid-cols-2 py-10">
-      <div className="bg-[url('/images/3d-map.png')] -ms-[25%] bg-contain bg-no-repeat">
-        {/* <Image src={"/images/3d-map.png"} alt="UMKM" width={500} height={500} className="bg-fuchsia-300 w-full bg-contain"/> */}
-      </div>
+      <div className="bg-[url('/images/3d-map.png')] -ms-[25%] bg-contain bg-no-repeat"></div>
       <div className="flex items-center justify-center">
         <div className="py-12">
           <h1 className="text-3xl font-poetsen text-primary">DATA UMKM</h1>
@@ -19,7 +35,9 @@ const Statistic = () => {
               className="w-14"
             />
             <div>
-              <h2 className="text-2xl font-extrabold">12</h2>
+              <h2 className="text-2xl font-extrabold">
+                {statistic?.totalUMKM}
+              </h2>
               <p>Total UMKM</p>
             </div>
           </div>
@@ -32,7 +50,9 @@ const Statistic = () => {
               className="w-14"
             />
             <div>
-              <h2 className="text-2xl font-extrabold">24</h2>
+              <h2 className="text-2xl font-extrabold">
+                {statistic?.totalProducts}
+              </h2>
               <p>Total Produk</p>
             </div>
           </div>
