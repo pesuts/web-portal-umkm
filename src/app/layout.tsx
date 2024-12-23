@@ -1,5 +1,9 @@
-import { Poppins, Poetsen_One } from "next/font/google";
+import {
+  Poppins,
+  // Poetsen_One
+} from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
 import Navbar from "./navbar";
 import Footer from "@/components/landing-page/Footer";
 
@@ -13,12 +17,12 @@ export const metadata: Metadata = {
   description: "Portal UMKM - Desa Tanjungrejo",
   authors: [{ name: "KKN 82 UPN", url: process.env.NEXT_PUBLIC_API_URL }],
   icons: {
-    icon: '/kebumen.ico'
+    icon: "/kebumen.ico",
   },
   openGraph: {
     title: "Portal UMKM - Desa Tanjungrejo",
   },
-}
+};
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,13 +31,19 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const poetsenOne = Poetsen_One({
-  subsets: ["latin"],
-  weight: ["400"],
+const poetsenOne = localFont({
+  src: "./fonts/PoetsenOne-Regular.ttf",
   variable: "--font-poetsen-one",
-  display: "swap",
-  adjustFontFallback: false,
+  weight: "400",
 });
+
+// const poetsenOne = Poetsen_One({
+//   subsets: ["latin"],
+//   weight: ["400"],
+//   variable: "--font-poetsen-one",
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
 
 export default function RootLayout({
   children,
