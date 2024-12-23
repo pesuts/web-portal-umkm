@@ -8,7 +8,9 @@ async function fetchProduct(idProduct: string) {
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
 
-  const res = await fetch(`${baseUrl}/api/products?id=${idProduct}`);
+  const res = await fetch(`${baseUrl}/api/products?id=${idProduct}`, {
+    cache: "no-store"
+  });
   if (!res.ok) {
     notFound();
   }

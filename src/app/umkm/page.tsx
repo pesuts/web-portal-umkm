@@ -7,7 +7,9 @@ async function fetchUMKM() {
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
 
-  const res = await fetch(`${baseUrl}/api/umkm`);
+  const res = await fetch(`${baseUrl}/api/umkm`, {
+    cache: "no-store"
+  });
   const data = await res.json();
   isLoading = false;
   return data.data;
