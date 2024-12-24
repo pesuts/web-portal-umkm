@@ -10,7 +10,13 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
 
-const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolean }) => {
+const UMKMDetailView = ({
+  UMKM,
+  isLoading,
+}: {
+  UMKM: UMKMType;
+  isLoading: boolean;
+}) => {
   return (
     <div className="px-8 py-5 bg-primary-bg">
       <div className="flex justify-between">
@@ -45,7 +51,7 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
               <div className="col-span-4">
                 <div className="relative h-full">
                   <Image
-                    src={"/images/placeholder-card.jpg"}
+                    src={UMKM?.image ?? "/images/placeholder-card.jpg"}
                     width={500}
                     height={500}
                     alt="UMKM"
@@ -68,9 +74,7 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
                               size={35}
                             />
                           </div>
-                          <p className="-ms-1 mt-2">
-                            {UMKM?.address}
-                          </p>
+                          <p className="-ms-1 mt-2">{UMKM?.address}</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <BsBoxSeamFill
@@ -145,7 +149,11 @@ const UMKMDetailView = ({ UMKM, isLoading }: { UMKM: UMKMType, isLoading: boolea
                 </h1>
                 <div className="grid grid-cols-3 gap-8">
                   {UMKM?.products.map((product) => (
-                    <ProductCard key={product.id} product={product} dusun={UMKM.dusun} />
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      dusun={UMKM.dusun}
+                    />
                   ))}
                 </div>
               </div>
