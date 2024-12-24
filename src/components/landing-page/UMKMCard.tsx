@@ -17,7 +17,7 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
           width={500}
           height={500}
           alt="UMKM"
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
           className="rounded-lg h-60"
         />
         <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
