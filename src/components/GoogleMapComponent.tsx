@@ -30,6 +30,7 @@ const polygonOptions = {
 
 const disabledOptions = {
   disableDefaultUI: true,
+
   clickableIcons: false,
   draggable: false,
   zoomControl: false,
@@ -94,16 +95,18 @@ const GoogleMapComponent = ({
                   : new window.google.maps.Size(40, 40),
             }}
             onClick={() => {
-              setSelectedMarker({
-                id: location.id,
-                lat: location.lat,
-                lng: location.lng,
-                title: location.name,
-                description: location.address,
-                totalProducts: location.totalProducts,
-                image: location.image,
-                dusun: location.dusun
-              });
+              if (!disabled) { 
+                setSelectedMarker({
+                  id: location.id,
+                  lat: location.lat,
+                  lng: location.lng,
+                  title: location.name,
+                  description: location.address,
+                  totalProducts: location.totalProducts,
+                  image: location.image,
+                  dusun: location.dusun
+                });
+              }
             }}
             onMouseOver={() => setHoveredMarker(markerKey)}
             onMouseOut={() => setHoveredMarker(null)}
