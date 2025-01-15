@@ -14,9 +14,9 @@ const information = {
 const Footer = () => {
   return (
     <div className="text-white">
-      <div className="p-12 grid grid-cols-3 bg-primary-dark">
+      <div className="p-12 lg:grid lg:grid-cols-3 bg-primary-dark flex flex-col gap-8 pt-20 lg:pt-12">
         <div>
-          <div className="w-[50%] mx-auto">
+          <div className="lg:w-[50%] lg:mx-auto">
             <h3 className="font-bold mb-3 text-primary-2 text-xl">PORTAL UMKM</h3>
             <div className="flex items-center">
               <Link
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <div className="w-[70%] mx-auto">
+          <div className="lg:w-[70%] lg:mx-auto">
             <h3 className="font-bold mb-3">Hubungi Kami</h3>
             <div className="flex flex-col gap-3 text-white">
               <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex gap-3 w-[80%]">
-                <div className="flex">
+                <div className="lg:flex">
                   <MdLocationPin className="text-primary mt-0.5" size={20} />
                 </div>
                 <a
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <div className="w-[55%] mx-auto">
+          <div className="lg:w-[55%] lg:mx-auto">
             <h3 className="font-bold mb-3">Ada Kendala?</h3>
             <p>
               Silahkan hubungi Admin Website, jika terdapat masalah atau
@@ -98,12 +98,16 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-primary text-center grid grid-cols-2 py-3 gap-1">
-        <div className="justify-self-end">
-          <span className="font-bold">&copy; 2025 Desa Tanjungrejo</span>
+      <div className="bg-primary text-center lg:py-3 lg:gap-1 py-6">
+        <div className="items-center mx-auto w-[60%]">
+        <div className="">
+          <p className="font-bold">&copy; 2025 Desa Tanjungrejo</p>
         </div>
-        <div className="justify-self-start">
-          <span> | By : KKN 82 UPN Veteran Yogyakarta</span>
+        <div className="">
+          <p className="text-sm">
+            By: KKN AA.82 (125 & 126) UPN Veteran Yogyakarta
+          </p>
+        </div>
         </div>
       </div>
     </div>
