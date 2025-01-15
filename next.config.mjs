@@ -2,7 +2,7 @@
 
 // const nextConfig: NextConfig = {
 const nextConfig = {
-  output: 'standalone',
+  // output: 'standalone',
   /* config options here */
   images: {
     remotePatterns: [
