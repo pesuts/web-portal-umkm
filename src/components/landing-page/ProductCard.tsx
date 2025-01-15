@@ -1,8 +1,11 @@
 import type { productType } from "@/data/product";
+import capitalizeFirstLetter from "@/utils/capital";
 import Image from "next/image";
 import Link from "next/link";
-import { BiSolidUserCircle } from "react-icons/bi";
+import { BiSolidCategoryAlt, BiSolidUserCircle } from "react-icons/bi";
 import { MdLocationPin } from "react-icons/md";
+
+const categories = ["makanan", "jasa"];
 
 const ProductCard = ({
   product,
@@ -28,7 +31,11 @@ const ProductCard = ({
         />
         <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
       </div>
-      <hr className="bg-slate-300 h-px border-0 mt-4" />
+      {/* <div className="flex items-center gap-3 ps-4 pt-3 text-primary">
+        <MdCategory /> 
+        <p>Makanan</p>
+      </div> */}
+      <hr className="bg-slate-300 h-px border-0 mt-2" />
       <div className="flex flex-col h-[48%] justify-between">
         <div className="px-4 mb-4">
           <div className="py-2">
@@ -37,6 +44,23 @@ const ProductCard = ({
                 {product?.name}
               </h3>
             </Link>
+            <div className="flex items-center gap-2 pt-2 text-primary">
+              <BiSolidCategoryAlt size={20} />
+              {categories.map((category, i) => {
+                {
+                  return (
+                    <Link
+                      href={"#"}
+                      key={i}
+                      className="hover:text-primary-hover"
+                    >
+                      {capitalizeFirstLetter(category)}
+                      {i !== categories.length - 1 ? ", " : ""}
+                    </Link>
+                  );
+                }
+              })}
+            </div>
             <div className="h-[130px] overflow-hidden">
               <p className="text-slate-700 py-2">{product?.description}</p>
             </div>

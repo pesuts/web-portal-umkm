@@ -2,6 +2,7 @@
 
 import GoogleMapComponent from "@/components/GoogleMapComponent";
 import listUmkm, { UMKMType } from "@/data/umkm";
+// import { retrieveData } from "@/lib/firebase/service";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {} from "react-icons/fa";
@@ -18,6 +19,15 @@ const Map = () => {
   const [isActiveFilter, setIsActiveFilter] = useState<boolean>(true);
 
   useEffect(() => { 
+    // const digi = async () => { 
+    //   console.log("daww");
+    //   const data = await retrieveData("location");
+    //   console.log(data);
+    //   console.log("daw");
+    // } 
+
+    // digi();
+    // console.log("arab");
     setUMKM(listUmkm);
   }, [])
 

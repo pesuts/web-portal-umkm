@@ -123,7 +123,7 @@ const UMKMDetailView = ({
                     </Link>
                     <Link
                       className="flex justify-center border-2 border-primary-hover items-center py-2 gap-2 px-5 bg-white rounded-md hover:bg-primary-bg"
-                      href={`https://wa.me/${UMKM?.phoneNumber.replace(
+                      href={`https://wa.me/${UMKM?.phoneNumber?.replace(
                         /\D/g,
                         ""
                       )}`}
