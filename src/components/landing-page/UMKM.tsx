@@ -64,7 +64,7 @@ const UMKM = () => {
   };
 
   return (
-    <div className="lg:p-20 p-6 py-16">
+    <div className="lg:p-20 p-6 pt-16 pb-12 lg:py-16">
       <div className="flex mb-8 justify-between">
         <div className="lg:flex gap-5 justify-center items-center hidden">
           <button onClick={handlePrev}>
@@ -93,7 +93,6 @@ const UMKM = () => {
         </div>
       </div>
       <div className="slider-container">
-        {/* <Slider ref={sliderRef} {...settings}> */}
         <Slider ref={sliderRef} {...sliderSettings}>
           {UMKM &&
             UMKM.map((umkm) => (
@@ -103,7 +102,7 @@ const UMKM = () => {
             ))}
         </Slider>
       </div>
-      <div className="flex gap-5 justify-center items-center lg:hidden">
+      <div className="flex gap-5 justify-center items-center lg:hidden pt-8">
         <button onClick={handlePrev}>
           <BsArrowLeftCircle
             size={50}

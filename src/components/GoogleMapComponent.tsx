@@ -30,7 +30,6 @@ const polygonOptions = {
 
 const disabledOptions = {
   disableDefaultUI: true,
-
   clickableIcons: false,
   draggable: false,
   zoomControl: false,
