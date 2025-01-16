@@ -20,7 +20,7 @@ const Statistic = () => {
     fetchData();
   }, []);
   return (
-    <div className="lg:grid lg:grid-cols-2 py-10 flex flex-col gap-10">
+    <div className="lg:grid lg:grid-cols-2 pt-10 flex flex-col gap-16 overflow-hidden">
       <div className="relative flex items-center justify-center h-64">
         <div className="absolute -left-8 top-0 bottom-0 -right-48 lg:-left-24 lg:-right-10">
           <Image

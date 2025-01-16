@@ -15,7 +15,7 @@ const ProductCard = ({
   dusun?: string;
 }) => {
   return (
-    <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white h-[560px]">
+    <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white min-h-[600px] lg:min-h-[560px]">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
         <MdLocationPin className="text-primary-2" />
         <p className="text-primary-2">{dusun ?? product?.umkmDetail?.dusun}</p>
@@ -67,9 +67,9 @@ const ProductCard = ({
           </div>
           <hr className="bg-slate-300 h-px border-0" />
         </div>
-        <div className="px-4 flex items-center justify-between gap-3">
-          <div className="flex items-start gap-3">
-            <div className="flex items-start gap-2">
+        <div className="px-4 flex items-center justify-between gap-1 lg:gap-3">
+          <div className="flex items-start gap-3 lg:w-[60%]">
+            <div className="flex items-start gap-2 px-4">
               <BiSolidUserCircle className="text-primary" size={30} />
               <p className="my-0.5">
                 Oleh{" "}
@@ -84,9 +84,13 @@ const ProductCard = ({
           </div>
           <Link
             href={`/products/${product.id}`}
-            className="py-2 px-3 bg-primary-2 text-white text-md rounded-md hover:bg-primary"
+            className="py-2 px-3 lg:px-4 bg-primary-2 text-white text-md rounded-md hover:bg-primary items-center"
           >
-            Selengkapnya
+            <p className="lg:text-md text-sm hidden lg:block">Lihat Detail</p>
+            <div className="lg:hidden">
+              <p className="lg:text-md text-sm">Lihat Detail</p>
+              {/* <p className="lg:text-md text-sm">Detail...</p> */}
+            </div>
           </Link>
         </div>
       </div>
