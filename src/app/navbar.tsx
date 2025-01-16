@@ -42,7 +42,7 @@ export default function Navbar({
 
   return (
     <div
-      className={`bg-slate-100 w-full justify-between lg:grid lg:grid-cols-12 items-center px-4 lg:px-16 py-4 flex ${
+      className={`bg-slate-100 w-full justify-between lg:grid lg:grid-cols-12 items-center px-0 lg:px-16 py-4 flex ${
         sideBar ? "flex-col gap-8" : ""
       }`}
     >

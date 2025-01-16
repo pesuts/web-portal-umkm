@@ -103,9 +103,10 @@ const Footer = () => {
         <div className="">
           <p className="font-bold">&copy; 2025 Desa Tanjungrejo</p>
         </div>
-        <div className="">
-          <p className="text-sm">
-            By: KKN AA.82 (125 & 126) UPN Veteran Yogyakarta
+        <div className="flex">
+          <p className="text-sm w-[85%] lg:w-[100%] mx-auto">
+            By: KKN AA.82 (125 & 126) 
+            UPN Veteran Yogyakarta
           </p>
         </div>
         </div>
