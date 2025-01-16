@@ -1,6 +1,6 @@
 "use client";
 
-import Slider, { Settings } from "react-slick";
+import Slider from "react-slick";
 import { productType } from "@/data/product";
 import ProductCard from "./ProductCard";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
@@ -8,17 +8,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { getData } from "@/services";
 
-// const settings: Settings = {
-//   infinite: true,
-//   speed: 500,
-//   slidesToShow: 3,
-//   slidesToScroll: 3,
-//   dots: false,
-//   arrows: false,
-// };
-
 const Products = () => {
   const [products, setProducts] = useState<productType[]>([]);
+  const sliderRef = useRef<Slider>(null);
   const [sliderSettings, setSliderSettings] = useState({
     infinite: true,
     speed: 500,
@@ -32,38 +24,29 @@ const Products = () => {
     const updateSettings = () => {
       if (window.innerWidth < 768) {
         setSliderSettings({
-          infinite: true,
-          speed: 500,
+          ...sliderSettings,
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: false,
         });
       } else {
         setSliderSettings({
-          infinite: true,
-          speed: 500,
+          ...sliderSettings,
           slidesToShow: 3,
           slidesToScroll: 3,
           dots: false,
-          arrows: false,
         });
       }
     };
 
-    // Initialize settings on load
     updateSettings();
 
-    // Add event listener for window resize
     window.addEventListener('resize', updateSettings);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('resize', updateSettings);
     };
   }, []);
-
-  const sliderRef = useRef<Slider>(null);
 
   useEffect(() => {
     const fetchData = async () => {
