@@ -2,6 +2,7 @@
 
 // const nextConfig: NextConfig = {
 const nextConfig = {
+  // output: 'standalone',
   /* config options here */
   images: {
     remotePatterns: [

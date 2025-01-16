@@ -1,7 +1,6 @@
-import {
-  Poppins,
-  // Poetsen_One
-} from "next/font/google";
+"use client";
+
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "./navbar";
@@ -10,19 +9,8 @@ import Footer from "@/components/landing-page/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Portal UMKM - Desa Tanjungrejo",
-  description: "Portal UMKM - Desa Tanjungrejo",
-  authors: [{ name: "KKN 82 UPN", url: process.env.NEXT_PUBLIC_API_URL }],
-  icons: {
-    icon: "/kebumen.ico",
-  },
-  openGraph: {
-    title: "Portal UMKM - Desa Tanjungrejo",
-  },
-};
+import { useEffect, useRef, useState } from "react";
+import { IoIosCloseCircle } from "react-icons/io";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -37,27 +25,65 @@ const poetsenOne = localFont({
   weight: "400",
 });
 
-// const poetsenOne = Poetsen_One({
-//   subsets: ["latin"],
-//   weight: ["400"],
-//   variable: "--font-poetsen-one",
-//   display: "swap",
-//   adjustFontFallback: false,
-// });
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [ref, isOpen]);
+
+  const handleIsOpen = (value: boolean) => {
+    setIsOpen(value);
+  };
+
   return (
     <html lang="en">
       <body
         className={`${poppins.variable} ${poetsenOne.variable} font-sans antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <div ref={ref} className="relative">
+          {isOpen && (
+            <div className="fixed top-0 bottom-0 right-24 w-60 z-50 py-8 bg-slate-100 border-2 border-primary rounded-md">
+              <button
+                className="flex items-end justify-end self-end w-full pe-6"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                <IoIosCloseCircle
+                  size={35}
+                  className="text-primary-2 hover:text-primary-hover"
+                />
+              </button>
+              <div>
+                <Navbar sideBar={true} />
+              </div>
+            </div>
+          )}
+        </div>
+        <div className={`${isOpen ? "blur-lg" : ""}`}>
+          <Navbar sideBar={false} isOpen={isOpen} handleIsOpen={handleIsOpen} />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

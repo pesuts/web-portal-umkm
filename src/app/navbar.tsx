@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// import { useState } from "react";
 
 import { FaUserCircle } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const links = [
   {
@@ -25,12 +27,26 @@ const links = [
   },
 ];
 
-export default function Navbar() {
+export default function Navbar({
+  sideBar,
+  isOpen,
+  handleIsOpen,
+}: {
+  sideBar: boolean;
+  isOpen?: boolean;
+  // handleIsOpen?: (isOpen?: boolean) => void;
+  handleIsOpen?: (isOpen: boolean) => void;
+}) {
   const pathname = usePathname().split("/")[1];
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="bg-slate-100 w-full grid grid-cols-12 items-center px-16 py-4">
-      <div className="col-span-3">
+    <div
+      className={`bg-slate-100 w-full justify-between lg:grid lg:grid-cols-12 items-center px-0 lg:px-16 py-4 flex ${
+        sideBar ? "flex-col gap-8" : ""
+      }`}
+    >
+      <div className="lg:col-span-3 px-8">
         <div className="flex items-center">
           <Link href={"/"} className="flex gap-2 items-center justify-center">
             <Image
@@ -47,10 +63,21 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="col-span-6 mx-auto">
-        <ul className="flex gap-10">
+      {!sideBar && (
+        <button
+          onClick={() => (handleIsOpen ? handleIsOpen(!isOpen) : "")}
+          className="px-8 lg:hidden"
+        >
+          <GiHamburgerMenu size={30} className="text-primary" />
+        </button>
+      )}
+      <div className={`col-span-6 mx-auto ${sideBar ? "block" : "hidden lg:block"}`}>
+        <ul className={`flex gap-10 ${sideBar ? "flex-col text-center" : ""}`}>
           {links.map((link, i) => (
-            <li className="group transition duration-300 overflow-hidden" key={i}>
+            <li
+              className="group transition duration-300 overflow-hidden"
+              key={i}
+            >
               <Link
                 href={"/" + link.link}
                 className={`hover:text-primary-2 hover:font-bold overflow-hidden px-1 ${
@@ -68,7 +95,7 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-      <div className="col-span-3 flex justify-end">
+      <div className={`col-span-3 justify-end ${sideBar ? "block" : "hidden lg:flex"}`}>
         <button className="px-4 py-2 bg-primary rounded-md hover:bg-primary-hover">
           <div className="flex items-center justify-center gap-2">
             <FaUserCircle color="white" size={20} />
