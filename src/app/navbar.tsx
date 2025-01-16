@@ -65,7 +65,6 @@ export default function Navbar({
       </div>
       {!sideBar && (
         <button
-          // onClick={() => (handleIsOpen ? handleIsOpen(!isOpen) : "")}
           onClick={() => (handleIsOpen ? handleIsOpen(!isOpen) : "")}
           className="px-8 lg:hidden"
         >

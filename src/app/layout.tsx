@@ -59,9 +59,9 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${poetsenOne.variable} font-sans antialiased`}
       >
-        <div ref={ref}>
+        <div ref={ref} className="relative">
           {isOpen && (
-            <div className="absolute top-0 bottom-0 right-0 w-60 z-50 py-8 bg-slate-100 border-2 border-primary rounded-md">
+            <div className="fixed top-0 bottom-0 right-24 w-60 z-50 py-8 bg-slate-100 border-2 border-primary rounded-md">
               <button
                 className="flex items-end justify-end self-end w-full pe-6"
                 onClick={() => {
