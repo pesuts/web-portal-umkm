@@ -26,10 +26,19 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      setIsOpen(false);
-    }
-  }, [window.innerWidth]);
+    const updateSettings = () => {
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+    updateSettings();
+
+    window.addEventListener('resize', updateSettings);
+
+    return () => {
+      window.removeEventListener('resize', updateSettings);
+    };
+  }, []);
 
   const handleIsOpen = (value: boolean) => {
     setIsOpen(value);

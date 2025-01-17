@@ -47,7 +47,7 @@ const UMKMDetailView = ({
           </div>
         ) : (
           <div className="border-2 bg-white shadow-lg rounded-2xl p-5 my-6">
-            <div className="grid grid-cols-12 gap-10">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-10 flex-col">
               <div className="col-span-4">
                 <div className="relative h-full">
                   <Image
@@ -62,7 +62,7 @@ const UMKMDetailView = ({
                 </div>
               </div>
               <div className="col-span-8 flex flex-col justify-between">
-                <div className="px-10 py-4 h-full">
+                <div className="lg;px-10 px-4 py-4 h-full">
                   <div className="py-2 h-full">
                     <h3 className="text-3xl font-bold">{UMKM?.name}</h3>
                     <div className="flex items-center h-full">
@@ -96,45 +96,54 @@ const UMKMDetailView = ({
                 </div>
                 <div
                   className="py-4 px-8 w-full text-center bg-primary-2 
-              text-white text-md rounded-b-lg grid grid-cols-2"
+              text-white text-md rounded-b-lg flex flex-col gap-2 lg:grid lg:grid-cols-2"
                 >
                   <div className="justify-self-start text-left">
                     <p>Kotak Person</p>
-                    <p className="font-bold text-2xl">{UMKM?.phoneNumber}</p>
+                    <p className="font-bold text-xl lg:text-2xl">{UMKM?.phoneNumber}</p>
                   </div>
-                  <div className="justify-self-end flex items-center gap-3 px-4">
-                    <Link href={"#"}>
-                      <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-                        alt="Instagram Icon"
-                        className="w-8 h-8"
-                        width={100}
-                        height={100}
-                      />
-                    </Link>
-                    <Link href={"#"}>
-                      <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
-                        alt="Facebook Icon"
-                        className="w-8 h-8"
-                        width={100}
-                        height={100}
-                      />
-                    </Link>
+                  <div className="justify-self-end flex flex-col lg:grid lg:grid-cols-12 items-center gap-3 w-full lg:px-4">
+                    <div className="flex justify-center items-center gap-4 w-full lg:col-span-4">
+                      <Link href={"#"}>
+                        <Image
+                          src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                          alt="Instagram Icon"
+                          className="w-8 h-8"
+                          width={100}
+                          height={100}
+                        />
+                      </Link>
+                      <Link href={"#"}>
+                        <Image
+                          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
+                          alt="Facebook Icon"
+                          className="w-8 h-8"
+                          width={100}
+                          height={100}
+                        />
+                      </Link>
+                    </div>
                     <Link
-                      className="flex justify-center border-2 border-primary-hover items-center py-2 gap-2 px-5 bg-white rounded-md hover:bg-primary-bg"
+                      className="w-full flex justify-center border-2 border-primary-hover items-center py-2 gap-4 lg:gap-2 lg:px-4 bg-white rounded-lg hover:bg-primary-bg lg:col-span-8"
                       href={`https://wa.me/${UMKM?.phoneNumber?.replace(
                         /\D/g,
                         ""
                       )}`}
                     >
-                      <p className="text-primary">Hubungi Sekarang</p>
+                      <p className="text-primary text-sm lg:text-base">Hubungi Sekarang</p>
                       <Image
                         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                         alt="Custom Icon"
-                        className="w-6 h-6"
+                        className="w-6 h-6 lg:hidden"
                         width={100}
                         height={100}
+                      />
+                      <Image
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                        alt="Custom Icon"
+                        className="w-6 h-6 hidden lg:block"
+                        width={200}
+                        height={200}
                       />
                     </Link>
                   </div>
@@ -147,7 +156,7 @@ const UMKMDetailView = ({
                 <h1 className="text-3xl text-white font-bold text-center mb-6 bg-primary py-4 rounded-md">
                   Produk UMKM
                 </h1>
-                <div className="grid grid-cols-3 gap-8">
+                <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
                   {UMKM?.products.map((product) => (
                     <ProductCard
                       key={product.id}

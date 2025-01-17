@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
@@ -23,26 +23,34 @@ const ProductsView = ({
 
   useEffect(() => {
     const filterProducts = products.filter((product) => {
-      return product.umkmDetail && checkedDusun.includes(product?.umkmDetail?.dusun);
+      return (
+        product.umkmDetail && checkedDusun.includes(product?.umkmDetail?.dusun)
+      );
     });
     setActiveData(filterProducts);
   }, [checkedDusun, products]);
 
   return (
     <div>
-      <div className="bg-[url('/images/umkm-header.png')] text-center py-12">
-        <div className="mx-auto w-[70%]">
+      <div className="bg-[url('/images/umkm-header-mobile.svg')] bg-cover lg:bg-[url('/images/umkm-header.png')] text-center py-12">
+        <div className="mx-auto w-full px-8 lg:w-[70%]">
+          <Image
+            src={"/images/products-h1-mobile.svg"}
+            width={1000}
+            height={1000}
+            alt="-"
+            className="flex lg:hidden mx-auto w-[90%] pointer-events-none"
+          />
           <Image
             src={"/images/products-h1.png"}
             width={1000}
             height={1000}
             alt="-"
-            className="flex mx-auto w-[60%] pointer-events-none"
+            className="hidden lg:flex mx-auto w-[60%] pointer-events-none"
           />
           <p className="py-2 text-primary font-semibold">
-            Jelajahi keberagaman Produk UMKM di Desa Tanjungrejo melalui galeri
-            kami. Temukan produk unik dan berkualitas dengan dedikasi dan
-            kreativitas tinggi oleh pengusaha lokal.
+            Dukung pengusaha lokal dengan memilih UMKM di Desa Tanjungrejo yang
+            menawarkan produk inovatif dan berkualitas tinggi.
           </p>
         </div>
       </div>
@@ -57,10 +65,13 @@ const ProductsView = ({
               Produk
             </Link>
           </div>
-          <DusunFilter checkedDusun={checkedDusun} setCheckedDusun={setCheckedDusun}/>
+          <DusunFilter
+            checkedDusun={checkedDusun}
+            setCheckedDusun={setCheckedDusun}
+          />
         </div>
         <div className="py-5 rounded-md">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
             {isLoading ? (
               <div className="absolute left-0 right-0 h-[30%] screen flex items-center justify-center w-full">
                 <PiCircleNotchBold
@@ -71,7 +82,9 @@ const ProductsView = ({
             ) : (
               activeData?.map((product) => (
                 <ProductCard
-                  key={product?.id + product?.umkmDetail?.name.replace(/ /g, "-")}
+                  key={
+                    product?.id + product?.umkmDetail?.name.replace(/ /g, "-")
+                  }
                   product={product}
                 />
               ))

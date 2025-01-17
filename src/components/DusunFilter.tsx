@@ -36,7 +36,7 @@ const DusunFilter = ({ checkedDusun, setCheckedDusun }: {
       <button
         ref={buttonRef}
         onClick={() => setPilihDusun(!pilihDusun)}
-        className={`flex border-2 border-primary hover:bg-primary-hover text-white ps-5 pe-2 py-2 rounded-md justify-between gap-8 items-center hover:border-primary-hover ${pilihDusun ? "bg-primary border-primary-dark border-2" : "bg-primary-2"}`}
+        className={`flex border-2 border-primary hover:bg-primary-hover text-white ps-2 lg:ps-5 pe-2 py-2 rounded-md justify-between gap-5 lg:gap-8 items-center hover:border-primary-hover ${pilihDusun ? "bg-primary border-primary-dark border-2" : "bg-primary-2"}`}
       >
         <p>Pilih Dusun</p>
         <div onClick={(e) => { 
@@ -63,7 +63,7 @@ const DusunFilter = ({ checkedDusun, setCheckedDusun }: {
                     setCheckedDusun([...checkedDusun, e]);
                   }
                 }}
-                className="flex items-center w-full gap-2 px-3"
+                className="flex items-center lg:w-full gap-2 lg:px-3"
               >
                 {checkedDusun.includes(e) ? (
                   <ImCheckboxChecked className="text-primary" size={20} />
