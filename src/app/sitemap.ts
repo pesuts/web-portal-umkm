@@ -3,10 +3,13 @@ import {
   // NextResponse
 } from "next/server";
 import { format } from "date-fns";
+import { MetadataRoute } from "next";
 
-export const config = {
-  runtime: "edge",
-};
+// export const config = {
+//   runtime: "edge",
+// };
+
+export const runtime = "edge";
 
 const staticPages = [
   { url: "/", priority: 1.0 },
@@ -15,12 +18,14 @@ const staticPages = [
   { url: "/map", priority: 0.8 },
 ];
 
-export default function handler(req: NextRequest) {
+// export default function handler(req: NextRequest) {
+export default function sitemap(): MetadataRoute.Sitemap {
   // const host = req.nextUrl.host;
   const sites = staticPages.map((page) => ({
     url: page.url,
     lastModified: format(new Date(), "yyyy-MM-dd"),
-    changeFrequency: "yearly",
+    // lastModified: new Date(),
+    changeFrequency: "yearly" as "yearly",
     priority: page.priority,
   }));
 
