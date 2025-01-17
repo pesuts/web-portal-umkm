@@ -18,6 +18,7 @@ const Products = () => {
     slidesToScroll: 3,
     dots: false,
     arrows: false,
+    autoplaySpeed: 3000,
   });
 
   useEffect(() => {
@@ -41,10 +42,10 @@ const Products = () => {
 
     updateSettings();
 
-    window.addEventListener('resize', updateSettings);
+    window.addEventListener("resize", updateSettings);
 
     return () => {
-      window.removeEventListener('resize', updateSettings);
+      window.removeEventListener("resize", updateSettings);
     };
   }, []);
 
@@ -75,8 +76,8 @@ const Products = () => {
           </Link>
           <h1 className="text-3xl text-primary font-poetsen"></h1>
           <p className="text-slate-500 my-2">
-            Temukan produk unik dan berkualitas tinggi dengan dedikasi dan
-            kreativitas tinggi oleh pengusaha lokal.
+            Setiap produk memiliki cerita dan dedikasi yang tinggi dari
+            pengusaha lokal yang berkomitmen memberikan yang terbaik.
           </p>
         </div>
         <div className="flex gap-5 justify-center items-start lg:items-center">

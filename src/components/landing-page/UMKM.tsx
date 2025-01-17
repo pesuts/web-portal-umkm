@@ -18,6 +18,8 @@ const UMKM = () => {
     slidesToScroll: 3,
     dots: false,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000
   });
 
   useEffect(() => {

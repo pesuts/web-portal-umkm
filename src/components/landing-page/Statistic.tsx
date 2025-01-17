@@ -26,8 +26,8 @@ const Statistic = () => {
           <Image
             src={"/images/3d-map.png"}
             alt="UMKM"
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
           />
         </div>
       </div>
