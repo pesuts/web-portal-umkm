@@ -36,15 +36,15 @@ const ProductsView = ({
         <div className="mx-auto w-full px-8 lg:w-[70%]">
           <Image
             src={"/images/products-h1-mobile.svg"}
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
             alt="-"
             className="flex lg:hidden mx-auto w-[90%] pointer-events-none"
           />
           <Image
             src={"/images/products-h1.png"}
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
             alt="-"
             className="hidden lg:flex mx-auto w-[60%] pointer-events-none"
           />

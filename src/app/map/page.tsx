@@ -19,15 +19,6 @@ const Map = () => {
   const [isActiveFilter, setIsActiveFilter] = useState<boolean>(true);
 
   useEffect(() => {
-    // const digi = async () => {
-    //   console.log("daww");
-    //   const data = await retrieveData("location");
-    //   console.log(data);
-    //   console.log("daw");
-    // }
-
-    // digi();
-    // console.log("arab");
     setUMKM(listUmkm);
   }, []);
 
@@ -37,19 +28,26 @@ const Map = () => {
   }, [showDusun]);
 
   return (
-    <div className="h-screen">
+    <div className="lg:h-screen h-[500px] mb-28 lg:mb-0">
       <div className="bg-primary py-3">
         <div className="mx-auto w-[70%]">
           <Image
-            src={"/images/map-h1.png"}
-            width={1000}
-            height={1000}
+            src={"/images/map-h1-mobile.svg"}
+            width={500}
+            height={500}
             alt="-"
-            className="flex mx-auto w-[60%] pointer-events-none"
+            className="flex mx-auto w-[90%] pointer-events-none lg:hidden"
+          />
+          <Image
+            src={"/images/map-h1.png"}
+            width={500}
+            height={500}
+            alt="-"
+            className="lg:flex mx-auto w-[60%] pointer-events-none hidden"
           />
         </div>
       </div>
-      <div className="h-[90%] relative">
+      <div className="lg:h-[90%] relative h-full">
         <GoogleMapComponent disabled={false} data={umkm} />
         <div
           className={`absolute left-0 top-0 bottom-0 lg:top-28 border-4 border-primary rounded-e-lg 
