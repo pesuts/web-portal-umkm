@@ -18,6 +18,7 @@ const Products = () => {
     slidesToScroll: 3,
     dots: false,
     arrows: false,
+    autoplaySpeed: 3000
   });
 
   useEffect(() => {
