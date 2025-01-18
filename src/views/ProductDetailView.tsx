@@ -42,10 +42,10 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
             />
           </div>
         ) : (
-          <div className="rounded-md grid grid-cols-12 gap-6 my-6">
-            <div className="bg-white col-span-8 grid grid-cols-2 rounded-md px-12 p-8 gap-8">
+          <div className="rounded-md flex flex-col lg:grid lg:grid-cols-12 gap-6 mt-6 lg:my-6">
+            <div className="bg-white col-span-8 flex flex-col lg:grid lg:grid-cols-2 rounded-md p-6 lg:px-12 lg:py-8 gap-8">
               <div>
-                <div className="h-[84%]">
+                <div className="lg:h-[84%] h-[300px]">
                   <Image
                     src={
                       product?.images?.[activePicture] ||

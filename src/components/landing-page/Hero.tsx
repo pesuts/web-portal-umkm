@@ -19,8 +19,8 @@ const Hero = () => {
           <Image
             src={"/images/umkm.png"}
             alt="UMKM"
-            width={500}
-            height={500}
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
