@@ -82,7 +82,7 @@ const GoogleMapComponent = ({
       options={disabled ? disabledOptions : defaultOptions}
       // mapTypeId={satellite ? "hybrid" : "roadmap"}
       // mapTypeId={mapTypeId ?? "hybrid"}
-      mapTypeId="hybrid"
+      mapTypeId="satellite"
       // mapTypeId={mapTypeId}
     >
       <Polygon
