@@ -28,7 +28,7 @@ const Map = () => {
   }, [showDusun]);
 
   return (
-    <div className="lg:h-screen h-[500px] mb-28 lg:mb-0">
+    <div className="lg:h-screen h-[600px] mb-28 lg:mb-0">
       <div className="bg-primary py-3">
         <div className="mx-auto w-[70%]">
           <Image
@@ -48,7 +48,8 @@ const Map = () => {
         </div>
       </div>
       <div className="lg:h-[90%] relative h-full">
-        <GoogleMapComponent disabled={false} data={umkm} />
+        {/* <GoogleMapComponent disabled={false} data={umkm} satellite={true} /> */}
+        <GoogleMapComponent disabled={false} data={umkm} mapTypeId="satellite" />
         <div
           className={`absolute left-0 top-0 bottom-0 lg:top-28 border-4 border-primary rounded-e-lg 
         bg-slate-100 px-2 lg:h-[70%] transition-all ease-out duration-1000 py-12 flex items-center justify-center ${

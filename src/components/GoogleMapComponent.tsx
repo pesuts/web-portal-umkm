@@ -43,9 +43,12 @@ const defaultOptions = {
 const GoogleMapComponent = ({
   disabled,
   data,
+  mapTypeId,
 }: {
   disabled: boolean;
   data: UMKMType[];
+  // satellite?: boolean;
+  mapTypeId?: "hybrid" | "satellite" | "roadmap" | "terrain";
 }) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API || "",
@@ -54,6 +57,8 @@ const GoogleMapComponent = ({
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null);
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
   const [base64, setBase64] = useState<any | null>(null);
+
+  // const mapTypeId = satellite ? "roadmap" : "hybrid";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,6 +80,10 @@ const GoogleMapComponent = ({
       zoom={15}
       center={center}
       options={disabled ? disabledOptions : defaultOptions}
+      // mapTypeId={satellite ? "hybrid" : "roadmap"}
+      // mapTypeId={mapTypeId ?? "hybrid"}
+      mapTypeId="hybrid"
+      // mapTypeId={mapTypeId}
     >
       <Polygon
         path={kelurahanTanjungrejoPoly.coordinates}
@@ -94,7 +103,7 @@ const GoogleMapComponent = ({
                   : new window.google.maps.Size(40, 40),
             }}
             onClick={() => {
-              if (!disabled) { 
+              if (!disabled) {
                 setSelectedMarker({
                   id: location.id,
                   lat: location.lat,
@@ -103,7 +112,7 @@ const GoogleMapComponent = ({
                   description: location.address,
                   totalProducts: location.totalProducts,
                   image: location.image,
-                  dusun: location.dusun
+                  dusun: location.dusun,
                 });
               }
             }}

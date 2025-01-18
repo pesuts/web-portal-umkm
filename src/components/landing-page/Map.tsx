@@ -22,7 +22,7 @@ const Map = () => {
         </Link>
       </div>
       <div className="h-[480px] lg:h-[75%] box-border">
-        <GoogleMapComponent disabled={true} data={umkm} />
+        <GoogleMapComponent disabled={true} data={umkm} mapTypeId="hybrid" />
       </div>
     </div>
   );
