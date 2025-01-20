@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Sidebar from "@/components/Sidebar";
 import { Metadata } from "next";
+import Head from "next/head";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -51,6 +52,12 @@ export default function RootLayout({
         <link rel="icon" href="/monja.ico" />
         <meta property="og:title" content="Portal UMKM - Desa Rusus" />
       </Head> */}
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="Dybk9iDd90V8MeDbCMsrvEFQOkp5z3VI24s0Ds21-Hg"
+        />
+      </Head>
       <body
         className={`${poppins.variable} ${poetsenOne.variable} font-sans antialiased`}
       >
