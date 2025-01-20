@@ -22,7 +22,7 @@ const staticPages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   // const host = req.nextUrl.host;
   const sites = staticPages.map((page) => ({
-    url: page.url,
+    url: `https://${process.env.NEXT_PUBLIC_SITE_URL}${page.url}`,
     lastModified: format(new Date(), "yyyy-MM-dd"),
     // lastModified: new Date(),
     changeFrequency: "yearly" as "yearly",
