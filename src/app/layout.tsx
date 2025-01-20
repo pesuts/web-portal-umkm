@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Portal UMKM - Desa Tanjungrejo",
   },
+  other: {
+    "google-site-verification": "Dybk9iDd90V8MeDbCMsrvEFQOkp5z3VI24s0Ds21-Hg",
+  }
 };
 
 export default function RootLayout({
@@ -52,12 +55,12 @@ export default function RootLayout({
         <link rel="icon" href="/monja.ico" />
         <meta property="og:title" content="Portal UMKM - Desa Rusus" />
       </Head> */}
-      <Head>
+      {/* <Head>
         <meta
           name="google-site-verification"
           content="Dybk9iDd90V8MeDbCMsrvEFQOkp5z3VI24s0Ds21-Hg"
         />
-      </Head>
+      </Head> */}
       <body
         className={`${poppins.variable} ${poetsenOne.variable} font-sans antialiased`}
       >
