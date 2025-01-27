@@ -4,12 +4,13 @@ import Slider from "react-slick";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import UMKMCard from "./UMKMCard";
 import { useEffect, useRef, useState } from "react";
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeEdit } from "@/data/umkm";
 import { getData } from "@/services";
 import Link from "next/link";
 
 const UMKM = () => {
-  const [UMKM, setUMKM] = useState<UMKMType[]>([]);
+  // const [UMKM, setUMKM] = useState<UMKMType[]>([]);
+  const [UMKM, setUMKM] = useState<UMKMTypeEdit[]>([]);
   const sliderRef = useRef<Slider>(null);
   const [sliderSettings, setSliderSettings] = useState({
     infinite: true,
