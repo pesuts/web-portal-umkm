@@ -16,7 +16,8 @@ const MapView = ({
 }: {
   UMKM: UMKMTypeEdit[];
   isLoading?: boolean;
-}) => {
+  }) => {
+  const UMKMData = UMKM;
   const [checkedDusun, setCheckedDusun] = useState<string[]>(dusun);
   const [umkm, setUMKM] = useState<UMKMTypeEdit[]>(UMKM);
   // const [umkm, setUMKM] = useState<UMKMTypeEdit[]>([]);
@@ -28,7 +29,7 @@ const MapView = ({
   // }, []);
 
   useEffect(() => {
-    const newUMKM = umkm.filter((_: UMKMTypeEdit) => showDusun.includes(_.dusun));
+    const newUMKM = UMKMData.filter((_: UMKMTypeEdit) => showDusun.includes(_.dusun));
     // const newUMKM = listUmkm.filter((umkm) => showDusun.includes(umkm.dusun));
     setUMKM(newUMKM);
   }, [showDusun]);
