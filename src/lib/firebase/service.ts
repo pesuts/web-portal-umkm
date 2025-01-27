@@ -25,6 +25,18 @@ export async function retrieveData(collectionName: string) {
   return data;
 }
 
+export async function calculateTotalDocument(collectionName: string) {
+  try {
+    const collectionRef = collection(firestore, collectionName);
+    const querySnapshot = await getDocs(collectionRef);
+    const documentCount = querySnapshot.size;
+    return documentCount;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export async function retrieveDataById(collectionName: string, id: string) {
   const snapshot = await getDoc(doc(firestore, collectionName, id));
   const data = snapshot.data();

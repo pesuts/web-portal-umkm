@@ -1,8 +1,22 @@
-import umkm from "@/data/umkm";
+// import umkm from "@/data/umkm";
+"use client";
+
+import { useEffect, useState } from "react";
 import GoogleMapComponent from "../GoogleMapComponent";
 import Link from "next/link";
+import { getData } from "@/services";
+import { UMKMTypeEdit } from "@/data/umkm";
 
 const Map = () => {
+  const [UMKM, setUMKM] = useState<UMKMTypeEdit[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData("/api/umkm");
+      setUMKM(data.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="lg:h-screen w-full box-border lg:py-4">
       <div className="mb-6 text-center py-10 lg:py-2">
@@ -22,7 +36,8 @@ const Map = () => {
         </Link>
       </div>
       <div className="h-[480px] lg:h-[75%] box-border">
-        <GoogleMapComponent disabled={true} data={umkm} mapTypeId="hybrid" />
+        {/* <GoogleMapComponent disabled={true} data={umkm} mapTypeId="hybrid" /> */}
+        <GoogleMapComponent disabled={true} data={UMKM} mapTypeId="hybrid" />
       </div>
     </div>
   );
