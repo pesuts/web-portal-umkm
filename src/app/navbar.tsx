@@ -72,7 +72,7 @@ export default function Navbar({
         </button>
       )}
       <div
-        className={`col-span-6 mx-auto ${
+        className={`lg:col-span-6 mx-auto ${
           sideBar ? "block" : "hidden lg:block"
         }`}
       >
@@ -100,15 +100,15 @@ export default function Navbar({
         </ul>
       </div>
       <div
-        className={`col-span-3 justify-end ${
+        className={`lg:col-span-3 justify-end ${
           sideBar ? "block" : "hidden lg:flex"
         }`}
       >
         <a
           href={`${process.env.NEXT_PUBLIC_ADMIN_URL}`}
-          className="px-4 py-2 bg-primary rounded-md hover:bg-primary-hover"
+          className="block px-4 py-2 bg-primary rounded-md hover:bg-primary-hover"
         >
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-3">
             <FaUserCircle color="white" size={20} />
             <p className="font-semibold text-white">Admin</p>
           </div>

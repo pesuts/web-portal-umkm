@@ -53,11 +53,11 @@ const Footer = () => {
                   {information.phone}
                 </a>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 break-words lg:w-full">
                 <IoIosMail className="text-primary" size={20} />
                 <a
                   href={`mailto:${information.email}`}
-                  className="hover:text-primary-bg"
+                  className="hover:text-primary-bg break-words block text-sm lg:text-md"
                 >
                   {information.email}
                 </a>
@@ -93,15 +93,15 @@ const Footer = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                 alt="Custom Icon"
                 className="w-6 h-6"
-                width={100}
-                height={100}
+                width={300}
+                height={300}
               />
             </Link>
           </div>
         </div>
       </div>
       <div className="bg-primary text-center lg:py-3 lg:gap-1 py-6">
-        <div className="lg:grid lg:grid-cols-12 justify-center lg:w-[45%] mx-auto flex">
+        <div className="lg:grid lg:grid-cols-12 justify-center lg:w-[45%] mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:col-span-2 lg:self-center lg:justify-self-end">
             <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`}>
               <Image
@@ -109,7 +109,7 @@ const Footer = () => {
                 width={100}
                 height={100}
                 alt="Brand Logo"
-                className="w-10"
+                className="w-10 hidden lg:block"
               />
             </a>
           </div>
@@ -125,23 +125,32 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-1 lg:col-span-2 lg:self-center lg:justify-self-start">
+          <div className="flex gap-1 lg:col-span-2 lg:self-center lg:justify-self-start items-center justify-center lg:py-4 py-2">
             <a href={`${process.env.NEXT_PUBLIC_KKN_125_URL}`}>
               <Image
                 src={"/images/logo/logo-125.png"}
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 alt="Brand Logo"
-                className="w-10"
+                className="lg:w-10 w-16"
+              />
+            </a>
+            <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`}>
+              <Image
+                src={"/images/logo/logo-upn.png"}
+                width={300}
+                height={300}
+                alt="Brand Logo"
+                className="lg:w-10 w-24 lg:hidden"
               />
             </a>
             <a href={`${process.env.NEXT_PUBLIC_KKN_126_URL}`}>
               <Image
                 src={"/images/logo/logo-126.png"}
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 alt="Brand Logo"
-                className="w-10"
+                className="lg:w-10 w-16"
               />
             </a>
           </div>
