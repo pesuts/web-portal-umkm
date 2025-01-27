@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import 'react-photo-view/dist/react-photo-view.css';
+
 import Sidebar from "@/components/Sidebar";
 import { Metadata } from "next";
 import Head from "next/head";
