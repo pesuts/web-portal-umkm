@@ -1,10 +1,14 @@
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeEdit, UMKMTypeOk } from "@/data/umkm";
 import Image from "next/image";
 import Link from "next/link";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { MdLocationPin } from "react-icons/md";
 
-const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
+// const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
+// const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeOk }) => {
+const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeEdit }) => {
+  // console.log(UMKM)
+
   return (
     <div className="border border-slate-300 rounded-md p-5 relative bg-white">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
@@ -13,7 +17,9 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
       </div>
       <div className="px-4 relative">
         <Image
-          src={UMKM.image ? UMKM.image : `/images/placeholder-card.jpg`}
+          // src={UMKM.image ? UMKM.image : `/images/placeholder-card.jpg`}
+          // src={UMKM?.imageUrl?.[0]?.url ?? `/images/placeholder-card.jpg`}
+          src={UMKM?.imageUrl ?? `/images/placeholder-card.jpg`}
           width={500}
           height={500}
           alt="UMKM"
@@ -36,12 +42,13 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
                 <MdLocationPin className="text-primary-2 mt-0.5" size={20} />
               </div>
               <p className="max-h-18 overflow-hidden">
-                {UMKM.address}
+                {/* {UMKM.address} */}
+                {UMKM?.contact?.address}
               </p>
             </div>
             <div className="flex items-center gap-3">
               <BsBoxSeamFill className="text-primary-2" size={20} />
-              <p>{UMKM.totalProducts} Produk</p>
+              <p>{UMKM?.totalProducts} Produk</p>
             </div>
           </div>
         </div>

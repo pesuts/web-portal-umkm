@@ -71,7 +71,11 @@ export default function Navbar({
           <GiHamburgerMenu size={30} className="text-primary" />
         </button>
       )}
-      <div className={`col-span-6 mx-auto ${sideBar ? "block" : "hidden lg:block"}`}>
+      <div
+        className={`col-span-6 mx-auto ${
+          sideBar ? "block" : "hidden lg:block"
+        }`}
+      >
         <ul className={`flex gap-10 ${sideBar ? "flex-col text-center" : ""}`}>
           {links.map((link, i) => (
             <li
@@ -95,13 +99,20 @@ export default function Navbar({
           ))}
         </ul>
       </div>
-      <div className={`col-span-3 justify-end ${sideBar ? "block" : "hidden lg:flex"}`}>
-        <button className="px-4 py-2 bg-primary rounded-md hover:bg-primary-hover">
+      <div
+        className={`col-span-3 justify-end ${
+          sideBar ? "block" : "hidden lg:flex"
+        }`}
+      >
+        <a
+          href={`${process.env.NEXT_PUBLIC_ADMIN_URL}`}
+          className="px-4 py-2 bg-primary rounded-md hover:bg-primary-hover"
+        >
           <div className="flex items-center justify-center gap-2">
             <FaUserCircle color="white" size={20} />
             <p className="font-semibold text-white">Admin</p>
           </div>
-        </button>
+        </a>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { retrieveDataProducts } from "@/lib/firebase/service";
 import {
   getAllProductsWithUMKM, getProductByIdWithUMKM
 } from "@/services/products";
@@ -25,10 +26,12 @@ export async function GET(request: NextRequest) {
       { status: 200 }
     );
   }
+  const products = await retrieveDataProducts("products", "umkm");
   return NextResponse.json(
     {
       status: "success",
-      data: getAllProductsWithUMKM(),
+      // data: getAllProductsWithUMKM(),
+      data: products,
     },
     { status: 200 }
   );
