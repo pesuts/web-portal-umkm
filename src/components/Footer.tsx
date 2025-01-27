@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <div className="lg:w-[70%] lg:mx-auto">
+          <div className="lg:w-[80%] lg:mx-auto">
             <h3 className="font-bold mb-3">Hubungi Kami</h3>
             <div className="flex flex-col gap-3 text-white">
               <div className="flex items-center gap-3">

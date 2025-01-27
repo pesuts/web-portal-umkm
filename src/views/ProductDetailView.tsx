@@ -102,7 +102,10 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                   </p>
                   <Link
                     className="flex justify-center items-center mt-2 px-5 py-2 gap-2 bg-primary-2 border-white border rounded-md mx-auto w-full hover:bg-primary-hover"
-                    href={"https://wa.me/6287737982020"}
+                      href={`https://wa.me/${product?.umkmDetail?.contact?.phone?.replace(
+                        /\D/g,
+                        ""
+                      ).replace(/^0/, "62")}`}
                   >
                     <p className="text-white">Pesan Sekarang</p>
                     <Image
@@ -117,7 +120,7 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
               </div>
             </div>
             <div className="col-span-4 bg-white border border-slate-300 rounded-md p-5">
-              <h1 className="text-xl text-primary font-bold py-2">Informasi UMKM :</h1>
+              <h1 className="text-xl text-primary font-bold mb-2">Informasi UMKM :</h1>
               <div className="relative">
                 <Image
                   // src={"/images/placeholder-card.jpg"}
@@ -129,12 +132,12 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                   height={500}
                   alt="UMKM"
                   style={{ objectFit: "contain" }}
-                  className="rounded-lg h-52"
+                  className="rounded-lg h-52 lg:h-36"
                 />
                 <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
               </div>
               <hr className="bg-slate-300 h-px border-0 mt-4" />
-              <div className="px-10 py-4">
+              <div className="px-10 py-1">
                 <div className="py-2">
                   <h3 className="text-2xl font-bold">
                     {product?.umkmDetail?.name}

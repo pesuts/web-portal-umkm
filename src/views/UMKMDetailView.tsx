@@ -171,7 +171,7 @@ const UMKMDetailView = ({
                       href={`https://wa.me/${UMKM?.contact?.phone?.replace(
                         /\D/g,
                         ""
-                      )}`}
+                      ).replace(/^0/, "62")}`}
                     >
                       <p className="text-primary text-sm lg:text-base">
                         Hubungi Sekarang
