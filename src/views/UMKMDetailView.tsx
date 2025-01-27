@@ -1,7 +1,7 @@
 "use client";
 
 import ProductCard from "@/components/landing-page/ProductCard";
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeEdit } from "@/data/umkm";
 import capitalizeFirstLetter from "@/utils/capital";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,13 +12,15 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
 
-const categories = ["makanan", "jasa"];
+// const categories = ["makanan", "jasa"];
+const categories = ["makanan"];
 
 const UMKMDetailView = ({
   UMKM,
   isLoading,
 }: {
-  UMKM: UMKMType;
+  UMKM: UMKMTypeEdit;
+  // UMKM: UMKMType;
   isLoading: boolean;
 }) => {
   return (
@@ -55,7 +57,8 @@ const UMKMDetailView = ({
               <div className="col-span-4">
                 <div className="relative h-full">
                   <Image
-                    src={UMKM?.image ?? "/images/placeholder-card.jpg"}
+                    // src={UMKM?.image ?? "/images/placeholder-card.jpg"}
+                    src={UMKM?.imageUrl ?? "/images/placeholder-card.jpg"}
                     width={500}
                     height={500}
                     alt="UMKM"
@@ -78,7 +81,8 @@ const UMKMDetailView = ({
                               size={35}
                             />
                           </div>
-                          <p className="-ms-1 mt-2">{UMKM?.address}</p>
+                          {/* <p className="-ms-1 mt-2">{UMKM?.address}</p> */}
+                          <p className="-ms-1 mt-2">{UMKM?.contact?.address}</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <BsBoxSeamFill
@@ -87,16 +91,16 @@ const UMKMDetailView = ({
                           />
                           <p>{UMKM?.totalProducts} Produk</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        {/* <div className="flex items-center gap-3">
                           <FaPhoneAlt
                             className="text-primary-2 mx-1"
                             size={25}
                           />
-                          <p>{UMKM?.phoneNumber}</p>
-                        </div>
+                          <p>{UMKM?.contact?.phone}</p>
+                        </div> */}
                         <div className="flex items-center gap-3">
                           <FaUser className="text-primary-2 mx-1" size={25} />
-                          <p>{UMKM?.totalProducts}</p>
+                          <p>{UMKM?.owner}</p>
                         </div>
                         <div className="flex items-center gap-3 text-primary">
                           <BiSolidCategoryAlt
@@ -136,7 +140,8 @@ const UMKMDetailView = ({
                   <div className="justify-self-start text-left">
                     <p>Kotak Person</p>
                     <p className="font-bold text-xl lg:text-2xl">
-                      {UMKM?.phoneNumber}
+                      {/* {UMKM?.phoneNumber} */}
+                      {UMKM?.contact?.phone}
                     </p>
                   </div>
                   <div className="justify-self-end flex flex-col lg:grid lg:grid-cols-12 items-center gap-3 w-full lg:px-4">
@@ -162,7 +167,8 @@ const UMKMDetailView = ({
                     </div>
                     <Link
                       className="w-full flex justify-center border-2 border-primary-hover items-center py-2 gap-4 lg:gap-2 lg:px-4 bg-white rounded-lg hover:bg-primary-bg lg:col-span-8"
-                      href={`https://wa.me/${UMKM?.phoneNumber?.replace(
+                      // href={`https://wa.me/${UMKM?.phoneNumber?.replace(
+                      href={`https://wa.me/${UMKM?.contact?.phone?.replace(
                         /\D/g,
                         ""
                       )}`}
@@ -196,6 +202,7 @@ const UMKMDetailView = ({
                   Produk UMKM
                 </h1>
                 <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
+                  {/* {UMKM?.products.map((product) => ( */}
                   {UMKM?.products.map((product) => (
                     <ProductCard
                       key={product.id}

@@ -79,6 +79,7 @@ export interface UMKMTypeEdit {
   contact: contactType;
   name: string;
   owner: string;
+  products?: productType[];
 }
 
 export interface UMKMTypeOk {

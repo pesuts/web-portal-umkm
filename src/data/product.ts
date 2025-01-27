@@ -1,4 +1,4 @@
-import { UMKMType } from "./umkm";
+import { UMKMType, UMKMTypeEdit } from "./umkm";
 
 interface categoryType {
   name: string;
@@ -14,7 +14,8 @@ export interface productType {
   featured?: boolean;
   umkmId: string;
   umkmName: string;
-  umkmDetail?: UMKMType;
+  // umkmDetail?: UMKMType;
+  umkmDetail?: UMKMTypeEdit;
   category?: categoryType[];
 }
 
