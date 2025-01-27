@@ -30,8 +30,8 @@ interface ImageUrl {
 
 
 interface coordinateType {
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
 }
 
 interface dateType {
