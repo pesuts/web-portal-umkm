@@ -2,7 +2,7 @@
 
 import DusunFilter from "@/components/DusunFilter";
 import UMKMCard from "@/components/landing-page/UMKMCard";
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeOk, UMKMTypeEdit } from "@/data/umkm";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -15,10 +15,14 @@ const UMKMView = ({
   UMKM,
   isLoading,
 }: {
-  UMKM: UMKMType[];
+  // UMKM: UMKMType[];
+  // UMKM: UMKMTypeOk[];
+  UMKM: UMKMTypeEdit[];
   isLoading: boolean;
   }) => {
-  const [activeData, setActiveData] = useState<UMKMType[]>(UMKM);
+  const [activeData, setActiveData] = useState<UMKMTypeEdit[]>(UMKM);
+  // const [activeData, setActiveData] = useState<UMKMTypeOk[]>(UMKM);
+  // const [activeData, setActiveData] = useState<UMKMType[]>(UMKM);
   const [checkedDusun, setCheckedDusun] = useState<string[]>(dusun);
   
   useEffect(() => {

@@ -1,5 +1,59 @@
 import { productType } from "./product";
 
+interface MediaSocial {
+  instagram?: string;
+  facebook?: string;
+  phone?: string;
+  shopee?: string;
+}
+
+interface Coordinate {
+  lat: string;
+  lng: string;
+}
+
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface OpenDay {
+  day: string;
+  hour: string;
+  id: string;
+}
+
+interface ImageUrl { 
+  id: string;
+  url: string;
+}
+
+
+interface coordinateType {
+  lat: number;
+  lng: number;
+}
+
+interface dateType {
+  monday: string;
+  close: string;
+  open: string;
+}
+
+interface contactType {
+  address: string;
+  phone?: string;
+  email?: string;
+}
+
+interface platformType {
+  shopee?: string;
+  tokopedia?: string;
+  facebook?: string;
+  instagram?: string;
+  tiktok?: string;
+}
+
 export interface UMKMType {
   id: string;
   name: string;
@@ -12,6 +66,36 @@ export interface UMKMType {
   image?: string;
   productsId: string[];
   products?: productType[];
+}
+
+export interface UMKMTypeEdit {
+  id: string;
+  imageUrl?: string;
+  position: coordinateType;
+  totalProducts?: string;
+  dusun: string;
+  platforms?: platformType;
+  openDays: dateType[];
+  contact: contactType;
+  name: string;
+  owner: string;
+  products?: productType[];
+}
+
+export interface UMKMTypeOk {
+  id: string;
+  media_social: MediaSocial;
+  address: string;
+  imageUrl?: ImageUrl[];
+  position: Coordinate;
+  name: string;
+  dusun: string;
+  category?: Category[];
+  lastUpdate: string;
+  totalFav: number;
+  openDays?: OpenDay[];
+  description?: string;
+  totalProducts?: number;
 }
 
 const umkm: UMKMType[] = [

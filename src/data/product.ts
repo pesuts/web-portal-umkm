@@ -1,15 +1,22 @@
-import { UMKMType } from "./umkm";
+import { UMKMType, UMKMTypeEdit } from "./umkm";
+
+interface categoryType {
+  name: string;
+  id: string;
+}
 
 export interface productType {
   id: string;
   name: string;
   price?: number;
-  description: string;
+  description?: string;
   images?: string[];
   featured?: boolean;
   umkmId: string;
   umkmName: string;
-  umkmDetail?: UMKMType;
+  // umkmDetail?: UMKMType;
+  umkmDetail?: UMKMTypeEdit;
+  category?: categoryType[];
 }
 
 export const product = {
@@ -51,7 +58,7 @@ export const products: productType[] = [
     price: 7500,
     description:
       "Sale pisang adalah makanan manis khas Kebumen yang terbuat dari pisang yang dikeringkan dan digoreng, memiliki rasa manis alami dan aroma khas.",
-      images: ["/images/sale-pisang.jpg"],
+    images: ["/images/sale-pisang.jpg"],
     umkmId: "125",
     umkmName: "Pisang Sale Mbak Yuni",
     featured: false,

@@ -12,7 +12,7 @@ import kelurahanTanjungrejoPoly from "@/data/kelurahanTanjungrejo";
 import type { MarkerData } from "@/types/Map";
 import InfoMap from "./map/InfoMap";
 import { createCustomIcon, urlToBase64 } from "@/utils/imageUtils";
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeEdit } from "@/data/umkm";
 
 const mapContainerStyle = { width: "100%", height: "100%" };
 const center = { lng: 109.671, lat: -7.7305 };
@@ -46,7 +46,8 @@ const GoogleMapComponent = ({
   mapTypeId,
 }: {
   disabled: boolean;
-  data: UMKMType[];
+  data: UMKMTypeEdit[];
+  // data: UMKMType[];
   // satellite?: boolean;
   mapTypeId?: "hybrid" | "satellite" | "roadmap" | "terrain";
 }) => {
@@ -90,10 +91,12 @@ const GoogleMapComponent = ({
         options={polygonOptions}
       />
       {data.map((location) => {
-        const markerKey = `${location.lat}+${location.lng}`;
+        // const markerKey = `${location.lat}+${location.lng}`;
+        const markerKey = `${location?.position?.lat}+${location?.position?.lng}`;
         return (
           <Marker
-            position={{ lat: location.lat, lng: location.lng }}
+            position={{ lat: location?.position?.lat, lng: location?.position?.lng }}
+            // position={{ lat: location.lat, lng: location.lng }}
             key={markerKey}
             icon={{
               url: createCustomIcon(base64),
@@ -106,12 +109,17 @@ const GoogleMapComponent = ({
               if (!disabled) {
                 setSelectedMarker({
                   id: location.id,
-                  lat: location.lat,
-                  lng: location.lng,
+                  // lat: location.lat,
+                  // lng: location.lng,
+                  lat: location.position.lat,
+                  lng: location.position.lng,
                   title: location.name,
-                  description: location.address,
-                  totalProducts: location.totalProducts,
-                  image: location.image,
+                  // description: location.address,
+                  description: location.contact.address,
+                  // totalProducts: location.totalProducts,
+                  totalProducts: location?.totalProducts ? Number(location.totalProducts) : undefined,
+                  // image: location.image,
+                  image: location.imageUrl,
                   dusun: location.dusun,
                 });
               }

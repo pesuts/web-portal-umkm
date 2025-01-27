@@ -1,20 +1,26 @@
 "use client";
 
 import ProductCard from "@/components/landing-page/ProductCard";
-import { UMKMType } from "@/data/umkm";
+import { UMKMType, UMKMTypeEdit } from "@/data/umkm";
+import capitalizeFirstLetter from "@/utils/capital";
 import Image from "next/image";
 import Link from "next/link";
+import { BiSolidCategoryAlt } from "react-icons/bi";
 import { BsBoxSeamFill } from "react-icons/bs";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaUser } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { PiCircleNotchBold } from "react-icons/pi";
+
+// const categories = ["makanan", "jasa"];
+const categories = ["makanan"];
 
 const UMKMDetailView = ({
   UMKM,
   isLoading,
 }: {
-  UMKM: UMKMType;
+  UMKM: UMKMTypeEdit;
+  // UMKM: UMKMType;
   isLoading: boolean;
 }) => {
   return (
@@ -51,7 +57,8 @@ const UMKMDetailView = ({
               <div className="col-span-4">
                 <div className="relative h-full">
                   <Image
-                    src={UMKM?.image ?? "/images/placeholder-card.jpg"}
+                    // src={UMKM?.image ?? "/images/placeholder-card.jpg"}
+                    src={UMKM?.imageUrl ?? "/images/placeholder-card.jpg"}
                     width={500}
                     height={500}
                     alt="UMKM"
@@ -74,7 +81,8 @@ const UMKMDetailView = ({
                               size={35}
                             />
                           </div>
-                          <p className="-ms-1 mt-2">{UMKM?.address}</p>
+                          {/* <p className="-ms-1 mt-2">{UMKM?.address}</p> */}
+                          <p className="-ms-1 mt-2">{UMKM?.contact?.address}</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <BsBoxSeamFill
@@ -83,12 +91,43 @@ const UMKMDetailView = ({
                           />
                           <p>{UMKM?.totalProducts} Produk</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        {/* <div className="flex items-center gap-3">
                           <FaPhoneAlt
                             className="text-primary-2 mx-1"
                             size={25}
                           />
-                          <p>{UMKM?.phoneNumber}</p>
+                          <p>{UMKM?.contact?.phone}</p>
+                        </div> */}
+                        <div className="flex items-center gap-3">
+                          <FaUser className="text-primary-2 mx-1" size={25} />
+                          <p>{UMKM?.owner}</p>
+                        </div>
+                        <div className="flex items-center gap-3 text-primary">
+                          <BiSolidCategoryAlt
+                            className="text-primary-2 mt-0.5"
+                            size={35}
+                          />
+                          {/* {categories.map((category, i) => { */}
+                          {/* {product?.category?.map((cate, i) => { */}
+                          {categories.map((cate, i) => {
+                            {
+                              return (
+                                <Link
+                                  href={"#"}
+                                  key={i}
+                                  className="text-primary-2 hover:text-primary-hover pt-1"
+                                >
+                                  {capitalizeFirstLetter(cate)}
+                                  {categories && i !== categories.length - 1
+                                    ? // {capitalizeFirstLetter(cate?.name)}
+                                      // {product?.category &&
+                                      // i !== product.category.length - 1
+                                      ", "
+                                    : ""}
+                                </Link>
+                              );
+                            }
+                          })}
                         </div>
                       </div>
                     </div>
@@ -100,7 +139,10 @@ const UMKMDetailView = ({
                 >
                   <div className="justify-self-start text-left">
                     <p>Kotak Person</p>
-                    <p className="font-bold text-xl lg:text-2xl">{UMKM?.phoneNumber}</p>
+                    <p className="font-bold text-xl lg:text-2xl">
+                      {/* {UMKM?.phoneNumber} */}
+                      {UMKM?.contact?.phone}
+                    </p>
                   </div>
                   <div className="justify-self-end flex flex-col lg:grid lg:grid-cols-12 items-center gap-3 w-full lg:px-4">
                     <div className="flex justify-center items-center gap-4 w-full lg:col-span-4">
@@ -125,12 +167,15 @@ const UMKMDetailView = ({
                     </div>
                     <Link
                       className="w-full flex justify-center border-2 border-primary-hover items-center py-2 gap-4 lg:gap-2 lg:px-4 bg-white rounded-lg hover:bg-primary-bg lg:col-span-8"
-                      href={`https://wa.me/${UMKM?.phoneNumber?.replace(
+                      // href={`https://wa.me/${UMKM?.phoneNumber?.replace(
+                      href={`https://wa.me/${UMKM?.contact?.phone?.replace(
                         /\D/g,
                         ""
-                      )}`}
+                      ).replace(/^0/, "62")}`}
                     >
-                      <p className="text-primary text-sm lg:text-base">Hubungi Sekarang</p>
+                      <p className="text-primary text-sm lg:text-base">
+                        Hubungi Sekarang
+                      </p>
                       <Image
                         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                         alt="Custom Icon"
@@ -157,6 +202,7 @@ const UMKMDetailView = ({
                   Produk UMKM
                 </h1>
                 <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
+                  {/* {UMKM?.products.map((product) => ( */}
                   {UMKM?.products.map((product) => (
                     <ProductCard
                       key={product.id}

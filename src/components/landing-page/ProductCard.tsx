@@ -13,7 +13,9 @@ const ProductCard = ({
 }: {
   product: productType;
   dusun?: string;
-}) => {
+  }) => {
+  // console.log("asd");
+  
   return (
     <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white lg:min-h-[560px]">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
@@ -46,7 +48,8 @@ const ProductCard = ({
             </Link>
             <div className="flex items-center gap-2 pt-2 text-primary">
               <BiSolidCategoryAlt size={20} />
-              {categories.map((category, i) => {
+              {/* {categories.map((category, i) => { */}
+              {product?.category?.map((cate, i) => {
                 {
                   return (
                     <Link
@@ -54,8 +57,8 @@ const ProductCard = ({
                       key={i}
                       className="hover:text-primary-hover"
                     >
-                      {capitalizeFirstLetter(category)}
-                      {i !== categories.length - 1 ? ", " : ""}
+                      {capitalizeFirstLetter(cate?.name)}
+                      { (product?.category && i !== (product.category.length - 1)) ? ", " : ""}
                     </Link>
                   );
                 }

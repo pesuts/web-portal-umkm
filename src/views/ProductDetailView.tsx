@@ -45,7 +45,8 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
           <div className="rounded-md flex flex-col lg:grid lg:grid-cols-12 gap-6 mt-6 lg:my-6">
             <div className="bg-white col-span-8 flex flex-col lg:grid lg:grid-cols-2 rounded-md p-6 lg:px-12 lg:py-8 gap-8">
               <div>
-                <div className="lg:h-[84%] h-[300px]">
+                <div className="h-[350px] overflow-hidden flex items-center">
+                {/* <div className="lg:h-[200px] lg:w-[350px] h-[300px]"> */}
                   <Image
                     src={
                       product?.images?.[activePicture] ||
@@ -54,14 +55,14 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                     width={500}
                     height={500}
                     alt="Foto Produk"
-                    className="rounded-md h-full object-cover"
+                    className="rounded-md object-cover w-full"
                   />
                 </div>
                 <div className="grid grid-cols-12 gap-2 mt-4">
                   {[0, 1, 2, 3].map((num) => (
                     <button
                       key={num}
-                      className={`col-span-3 rounded-md border-primary ${
+                      className={`col-span-3 rounded-md border-primary lg:h-[80px] overflow-hidden ${
                         activePicture === num ? "border-4" : "hover:border-4"
                       }`}
                       onClick={() => setActivePicture(num)}
@@ -75,6 +76,7 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                         height={500}
                         alt="Foto Produk"
                         className="h-full"
+                        // className="w-full"
                         style={{ objectFit: "cover" }}
                       />
                     </button>
@@ -100,7 +102,10 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                   </p>
                   <Link
                     className="flex justify-center items-center mt-2 px-5 py-2 gap-2 bg-primary-2 border-white border rounded-md mx-auto w-full hover:bg-primary-hover"
-                    href={"https://wa.me/6287737982020"}
+                      href={`https://wa.me/${product?.umkmDetail?.contact?.phone?.replace(
+                        /\D/g,
+                        ""
+                      ).replace(/^0/, "62")}`}
                   >
                     <p className="text-white">Pesan Sekarang</p>
                     <Image
@@ -115,19 +120,24 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
               </div>
             </div>
             <div className="col-span-4 bg-white border border-slate-300 rounded-md p-5">
+              <h1 className="text-xl text-primary font-bold mb-2">Informasi UMKM :</h1>
               <div className="relative">
                 <Image
-                  src={"/images/placeholder-card.jpg"}
+                  // src={"/images/placeholder-card.jpg"}
+                  src={
+                    product?.umkmDetail?.imageUrl ||
+                    "/images/placeholder-card.jpg"
+                  }
                   width={500}
                   height={500}
                   alt="UMKM"
                   style={{ objectFit: "contain" }}
-                  className="rounded-lg h-52"
+                  className="rounded-lg h-52 lg:h-36"
                 />
                 <div className="rounded-lg absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-90"></div>
               </div>
               <hr className="bg-slate-300 h-px border-0 mt-4" />
-              <div className="px-10 py-4">
+              <div className="px-10 py-1">
                 <div className="py-2">
                   <h3 className="text-2xl font-bold">
                     {product?.umkmDetail?.name}
@@ -141,7 +151,8 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                         />
                       </div>
                       <p>
-                        {product?.umkmDetail?.address}
+                        {/* {product?.umkmDetail?.address} */}
+                        {product?.umkmDetail?.contact?.address}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
@@ -155,7 +166,8 @@ const ProductDetailView = ({ product, isLoading }: { product: productType, isLoa
                     </div>
                     <div className="flex items-center gap-3">
                       <FaPhoneAlt className="text-primary-2" size={20} />
-                      <p>{product?.umkmDetail?.phoneNumber}</p>
+                      {/* <p>{product?.umkmDetail?.phoneNumber}</p> */}
+                      <p>{product?.umkmDetail?.contact?.phone}</p>
                     </div>
                   </div>
                 </div>
