@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="lg:grid lg:grid-cols-2 lg:h-[calc(100vh-88px)] bg-[url('/images/hero-bg-mobile.png')] lg:bg-[url('/images/hero-bg.png')] w-full flex flex-col gap-10 py-6">
+    <div className="lg:grid lg:grid-cols-2 lg:h-[calc(100vh-88px)] bg-[url('/images/hero-bg-mobile.png')] lg:bg-[url('/images/hero-bg.png')] w-full flex flex-col gap-10 mt-20">
       <div className="bg-[url('/images/landing-asset-group-mobile.png')] lg:bg-[url('/images/landing-asset-group.png')] bg-contain bg-no-repeat flex justify-center items-center w-full py-36">
         <div className="flex flex-col text-center lg:text-left py-14">
           <h2 className="text-2xl">Selamat Datang di</h2>
