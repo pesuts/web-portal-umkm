@@ -105,7 +105,7 @@ const UMKM = () => {
             ))}
         </Slider>
       </div>
-      <div className="flex gap-5 justify-center items-center lg:hidden pt-8">
+      <div className="flex gap-5 justify-center items-center lg:hidden pt-4">
         <button onClick={handlePrev}>
           <BsArrowLeftCircle
             size={50}

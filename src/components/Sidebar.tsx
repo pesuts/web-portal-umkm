@@ -33,10 +33,10 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
     };
     updateSettings();
 
-    window.addEventListener('resize', updateSettings);
+    window.addEventListener("resize", updateSettings);
 
     return () => {
-      window.removeEventListener('resize', updateSettings);
+      window.removeEventListener("resize", updateSettings);
     };
   }, []);
 
@@ -87,7 +87,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
       </div>
       <div className={`${isOpen ? "blur-lg" : ""}`}>
         <Navbar sideBar={false} isOpen={isOpen} handleIsOpen={handleIsOpen} />
-        {children}
+        <div className="mt-20">{children}</div>
       </div>
     </div>
   );
