@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 // import { useState } from "react";
 
 import { FaUserCircle } from "react-icons/fa";
@@ -38,13 +39,38 @@ export default function Navbar({
   handleIsOpen?: (isOpen: boolean) => void;
 }) {
   const pathname = usePathname().split("/")[1];
-  // const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [showNavbar, setShowNavbar] = useState(true); // Kontrol visibility navbar
+  const [lastScrollY, setLastScrollY] = useState(0); // Menyimpan posisi scroll terakhir
 
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 50) {
+      // Jika scroll ke bawah dan lebih dari 50px
+      setShowNavbar(false);
+    } else {
+      // Jika scroll ke atas
+      setShowNavbar(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div
-      className={`bg-slate-100 w-full justify-between lg:grid lg:grid-cols-12 items-center px-0 lg:px-16 py-4 flex ${
+      className={`fixed z-50 top-0 bg-slate-100 w-full justify-between lg:grid lg:grid-cols-12 items-center px-0 lg:px-16 py-4 flex ${
         sideBar ? "flex-col gap-8" : ""
-      }`}
+      }
+      ${showNavbar ? "translate-y-0" : "-translate-y-full"}
+        `}
     >
       <div className="lg:col-span-3 px-8">
         <div className="flex items-center">
