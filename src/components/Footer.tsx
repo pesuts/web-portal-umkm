@@ -103,7 +103,7 @@ const Footer = () => {
       <div className="bg-primary text-center lg:py-3 lg:gap-1 py-6">
         <div className="lg:grid lg:grid-cols-12 justify-center lg:w-[45%] mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:col-span-2 lg:self-center lg:justify-self-end">
-            <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`}>
+            <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`} target="_blank">
               <Image
                 src={"/images/logo/logo-upn.png"}
                 width={100}
@@ -126,7 +126,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex gap-1 lg:col-span-2 lg:self-center lg:justify-self-start items-center justify-center lg:py-4 py-2">
-            <a href={`${process.env.NEXT_PUBLIC_KKN_125_URL}`}>
+            <a href={`${process.env.NEXT_PUBLIC_KKN_125_URL}`} target="_blank">
               <Image
                 src={"/images/logo/logo-125.png"}
                 width={300}
@@ -135,7 +135,7 @@ const Footer = () => {
                 className="lg:w-10 w-16"
               />
             </a>
-            <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`}>
+            <a href={`${process.env.NEXT_PUBLIC_UPN_URL}`} target="_blank">
               <Image
                 src={"/images/logo/logo-upn.png"}
                 width={300}
