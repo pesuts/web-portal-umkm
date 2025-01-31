@@ -177,5 +177,4 @@ Proyek ini menggunakan lisensi **MIT License** – bebas digunakan dan dimodifik
 ## 📧 Kontak
 - Developer: Daniel Hasiando Sinaga
 - 📩 Email: **daniel.sinaga.ds@gmail.com**
-- 🐦 Twitter: [@yourhandle](https://github.com/pesuts/web-portal-umkm/issues)
 

@@ -1,10 +1,11 @@
 import { productType } from "@/data/product";
-import { retrieveData } from "@/lib/firebase/service";
+import { retrieveData, retrieveDataProducts } from "@/lib/firebase/service";
 import { getAllFeaturedProducts } from "@/services/products";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const products: productType[] = (await retrieveData("products")).map(
+  // const products: productType[] = (await retrieveData("products")).map(
+  const products: productType[] = (await retrieveDataProducts("products", "umkm")).map(
     (product: any) => ({
       id: product.id,
       name: product.name || "",
@@ -14,7 +15,7 @@ export async function GET() {
       featured: product.featured || "",
       umkmId: product.umkmId || "",
       umkmName: product.umkmName || "",
-      umkmDetail: product.umkmDetail || "",
+      umkmDetail: product.umkmDetail || {},
       category: product.category || false,
     })
   );

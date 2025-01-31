@@ -15,6 +15,7 @@ const ProductCard = ({
   dusun?: string;
   }) => {
   // console.log("asd");
+  console.log(product);
   
   return (
     <div className="border shadow-md border-slate-300 rounded-md p-3 relative bg-white lg:min-h-[560px]">

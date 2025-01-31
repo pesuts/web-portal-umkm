@@ -7,13 +7,11 @@ import { MdLocationPin } from "react-icons/md";
 // const UMKMCard = ({ UMKM }: { UMKM: UMKMType }) => {
 // const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeOk }) => {
 const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeEdit }) => {
-  // console.log(UMKM)
-
   return (
     <div className="border border-slate-300 rounded-md p-5 relative bg-white">
       <div className="absolute top-8 left-0 bg-white border-primary-2 border-2 border-s-0 flex items-center gap-1 px-2 py-0.5 z-10 rounded-e-lg">
         <MdLocationPin className="text-primary-2" />
-        <p className="text-primary-2">{UMKM.dusun}</p>
+        <p className="text-primary-2">{UMKM?.dusun}</p>
       </div>
       <div className="px-4 relative">
         <Image
@@ -31,9 +29,9 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeEdit }) => {
       <hr className="bg-slate-300 h-px border-0 mt-4" />
       <div className="px-4 mb-2">
         <div className="py-2">
-          <Link href={`/umkm/${UMKM.id}`}>
+          <Link href={`/umkm/${UMKM?.id}`}>
             <h3 className="text-xl font-bold hover:text-primary-hover">
-              {UMKM.name}
+              {UMKM?.name}
             </h3>
           </Link>
           <div className="min-h-28 flex flex-col justify-between">
@@ -56,7 +54,7 @@ const UMKMCard = ({ UMKM }: { UMKM: UMKMTypeEdit }) => {
       <hr className="bg-slate-300 h-px border-0 mb-4" />
       <div className="px-4 flex items-center justify-end">
         <Link
-          href={`/umkm/${UMKM.id}`}
+          href={`/umkm/${UMKM?.id}`}
           className="py-2 px-3 bg-primary-2 text-white text-md rounded-md hover:bg-primary"
         >
           Lihat Produk
