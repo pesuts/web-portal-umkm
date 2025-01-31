@@ -28,8 +28,8 @@ Web UMKM Tanjungrejo adalah sebuah platform berbasis web yang dibuat menggunakan
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/username/web-umkm-tanjungrejo.git
-cd web-umkm-tanjungrejo
+git clone https://github.com/pesuts/web-portal-umkm.git
+cd web-portal-umkm
 ```
 
 ### 2️⃣ Instal Dependensi
@@ -50,7 +50,7 @@ FIREBASE_AUTH_DOMAIN=your_auth_domain
 FIREBASE_PROJECT_ID=your_project_id
 FIREBASE_STORAGE_BUCKET=your_storage_bucket
 FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-FIREBASE_APP_ID=your_ap_id
+FIREBASE_APP_ID=your_app_id
 ```
 
 ### 4️⃣ Jalankan Proyek
