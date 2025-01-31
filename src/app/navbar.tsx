@@ -132,6 +132,7 @@ export default function Navbar({
       >
         <a
           href={`${process.env.NEXT_PUBLIC_ADMIN_URL}`}
+          target="_blank"
           className="block px-4 py-2 bg-primary rounded-md hover:bg-primary-hover"
         >
           <div className="flex items-center justify-center gap-3">

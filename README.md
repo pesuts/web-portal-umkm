@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web UMKM Tanjungrejo
 
-## Getting Started
+[![Next.js Version](https://img.shields.io/badge/next.js-14.2.15-blue)](https://nextjs.org/) [![React Version](https://img.shields.io/badge/react-18-blue)](https://react.dev/) [![Tailwind CSS](https://img.shields.io/badge/tailwindcss-3.4.1-blue)](https://tailwindcss.com/) [![Firebase](https://img.shields.io/badge/firebase-11.1.0-orange)](https://firebase.google.com/)
 
-First, run the development server:
+## 📌 Deskripsi Proyek
+Web UMKM Tanjungrejo adalah sebuah platform berbasis web yang dibuat menggunakan **Next.js**, **TailwindCSS**, dan **Firebase**. Aplikasi ini bertujuan untuk membantu masyarakat menemukan informasi mengenai UMKM yang berada di daerah Tanjungrejo, termasuk daftar produk yang mereka tawarkan.
 
+## 🚀 Fitur Utama
+- 🔍 **Pencarian UMKM dan produk**
+- 📂 **Halaman daftar UMKM dan produk**
+- 📄 **Detail informasi UMKM dan produk**
+- 🗺 **Halaman Peta - Integrasi Google Maps untuk lokasi UMKM**
+- 🔥 **Animasi interaktif dengan Framer Motion**
+- 📈 **Statistik UMKM menggunakan data real-time**
+
+## 🛠️ Teknologi
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **State Management**: React Context
+- **Animasi**: Framer Motion
+- **Peta**: Google Maps API (@react-google-maps/api)
+- **Galeri Foto**: react-photo-view
+- **Slider**: react-slick
+- **Backend**: Firebase Firestore
+- **Lainnya**: Axios, date-fns, react-icons
+
+## 💻 Instalasi & Menjalankan
+
+### 1️⃣ Clone Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/username/web-umkm-tanjungrejo.git
+cd web-umkm-tanjungrejo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Instal Dependensi
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Konfigurasi Environment Variables
+Buat file `.env.local` dan tambahkan konfigurasi berikut:
+```env
+NEXT_PUBLIC_GOOGLE_MAP_API=your_google_maps_api
+NEXT_PUBLIC_GOOGLE_MAP_ID=your_google_maps_id
+NEXT_PUBLIC_SITE_URL=your_site_url
+NEXT_PUBLIC_ADMIN_URL=your_admin_url
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+FIREBASE_API_KEY=your_api_key
+FIREBASE_AUTH_DOMAIN=your_auth_domain
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_STORAGE_BUCKET=your_storage_bucket
+FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+FIREBASE_APP_ID=your_ap_id
+```
 
-## Learn More
+### 4️⃣ Jalankan Proyek
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Struktur Folder
+```plaintext
+src/
+├── app/               # Routing aplikasi
+│   ├── api/           # Endpoint API
+│   ├── map/           # Halaman peta
+│   ├── products/      # Halaman produk
+│   └── umkm/          # Halaman UMKM
+├── components/        # Komponen reusable
+│   ├── landing-page/  # Komponen halaman utama
+│   └── map/           # Komponen peta
+├── data/              # Data statis
+├── lib/               # Konfigurasi Firebase
+├── services/          # Service layer untuk API
+├── types/             # TypeScript definitions
+├── utils/             # Utilities helper
+└── views/             # Halaman view components
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Dokumentasi API
+Endpoint yang tersedia:
+`
+GET /api/products/featured - Produk unggulan
+`
+`
+GET /api/products - Daftar semua Produk
+`
+`
+GET /api/umkm - Daftar semua UMKM
+`
+`
+GET /api/statistic - Data statistik wilayah
+`
 
-## Deploy on Vercel
+Contoh response:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+{
+  "status": "success",
+  "data": {
+    "position": {
+      "lng": 109.6712451,
+      "lat": -7.725755
+    },
+    "owner": "Rohman",
+    "id": "umkm-wkOHVAdLdpIeDnYnjVWSK",
+    "contact": {
+      "address": "Tinesek, Tanjungrejo, Buluspesantren, Kebumen",
+      "phone": "08812792687"
+    },
+    "totalProducts": 1,
+    "name": "Golak Mas Rohman",
+    "platforms": [
+      
+    ],
+    "dusun": "Tinesek",
+    "openDays": [
+      ...
+    ],
+    "products": [
+      ...,
+      ...
+    ]
+  }
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📸 Screenshots
+
+### Halaman Beranda
+![Homepage](/public/screenshots//landing-page.png)
+
+### Halaman Daftar UMKM
+![Detail Produk](/public/screenshots/umkm.png)
+
+### Halaman Detail UMKM
+![Detail Produk](/public/screenshots/umkm-detail.png)
+
+### Halaman Daftar Produk
+![Detail Produk](/public/screenshots/products.png)
+
+### Halaman Detail Produk
+![Detail Produk](/public/screenshots/product-detail.png)
+
+### Halaman Peta UMKM
+![Detail Produk](/public/screenshots/peta.png)
+
+### Halaman Info Peta UMKM
+![Detail Produk](/public/screenshots/peta-detail.png)
+
+## 🌍 Deployment
+
+🔗 [Web UMKM Tanjungrejo](https://umkmtanjungrejo.com)
+
+`umkmtanjungrejo.com`
+
+## 🎨 Design Prototype (Figma)
+Desain UI/UX dari website ini dibuat menggunakan **Figma**. Anda dapat melihat desain lengkapnya di tautan berikut:
+
+🔗 **[Lihat Desain di Figma](https://www.figma.com/design/WGOl7UmBs1eSG2JxxkEFd8/UI%2FUX-WEB-UMKM-TANJUNGREJO---PROKER-KKN?node-id=0-1&t=fX6JQCoAjsG73548-1)**  
+
+Berikut adalah tampilan desainnya:
+
+![Figma Preview](/public/screenshots/figma.png)
+
+## 🤝 Kontribusi
+1. **Fork** repository ini.
+2. **Buat branch** baru (`git checkout -b fitur-anda`).
+3. **Commit** perubahan (`git commit -m 'Menambahkan fitur baru'`).
+4. **Push ke branch** (`git push origin fitur-anda`).
+5. **Ajukan Pull Request**.
+
+## 📜 Lisensi
+Proyek ini menggunakan lisensi **MIT License** – bebas digunakan dan dimodifikasi dengan tetap memberikan kredit.
+
+## 📧 Kontak
+- Developer: Daniel Hasiando Sinaga
+- 📩 Email: **daniel.sinaga.ds@gmail.com**
+- 🐦 Twitter: [@yourhandle](https://github.com/pesuts/web-portal-umkm/issues)
+
